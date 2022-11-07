@@ -1,2 +1,2 @@
-# Cancer-Predicting-Algorithm
-[Work in Progress] Machine Learning Cancer-Predicting Model for 2023 International Science and Engineering Fair
+# Machine Learning Cancer-Predicting Algorithm
+This work-in-progress project utilizes the Python library scikit-learn and will ultimately predict a certain type of cancer with high accuracy. This is for ISEF 2023
