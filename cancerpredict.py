@@ -22,6 +22,14 @@ import numpy
 import matplotlib.pyplot as plt
 import xgboost as xgb
 
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow import feature_column
+from tensorflow.python.keras import layers
+from tensorflow.python.keras.layers import Input, Dense, Activation,Dropout
+from tensorflow.python.keras.models import Model
+from keras.utils import plot_model
+
 def regressor_models():
     df = pandas.read_csv('largenumericaltestdata.csv')
     '''df = pandas.read_csv('smallnumericaltestdata.csv')'''
@@ -122,15 +130,6 @@ def classifier_models():
     print({"Accuracy":Accuracy,"Precision":Precision,"Sensitivity_recall":Sensitivity_recall,"Specificity":Specificity,"F1_score":F1_score})
     '''
 
-'TensorFlow'
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow import feature_column
-from tensorflow.python.keras import layers
-from tensorflow.python.keras.layers import Input, Dense, Activation,Dropout
-from tensorflow.python.keras.models import Model
-from keras.utils import plot_model
-
 def neural_network():
     df = pandas.read_csv('largecategoricaltestdata.csv', sep=';')
     
@@ -140,65 +139,62 @@ def neural_network():
 
     df = pandas.get_dummies(df,df.columns[df.dtypes == 'object'])
     X = df.drop('y', axis = 1)
-    '''X = scale.fit_transform(X)'''
 
-    '''
-    df = pandas.read_csv('smallcategoricaltestdata.csv')
-
-    categoricalConversions = {'UK': 0, 'USA': 1, 'N': 2}
-    df['Nationality'] = df['Nationality'].map(categoricalConversions)
-    categoricalConversions = {'YES': 1, 'NO': 0}
-    df['Go'] = df['Go'].map(categoricalConversions)
-
-    inputs = ['Age','Experience','Rank','Nationality']
-    X = df[inputs]
-    y = df['Go']
-    '''
-    
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
 
-    ip_layer = Input(shape=(X.shape[1],))
-    dl1 = Dense(100, activation='relu')(ip_layer)
-    dl2 = Dense(50, activation='relu')(dl1)
-    dl3 = Dense(25, activation='relu')(dl2)
-    dl4 = Dense(10, activation='relu')(dl3)
-    output = Dense(1)(dl4)
+    X_train = scale.fit_transform(X_train)
+    X_test = scale.transform(X_test)
 
-    model = Model(inputs = ip_layer, outputs=output)
+    input_layer = Input(shape=(X.shape[1],)) ;'63'
+    dl1 = Dense(32, activation='relu')(input_layer)
+    output_layer = Dense(1)(dl1)
+
+    model = Model(inputs = input_layer, outputs=output_layer)
     model.compile(
         loss='binary_crossentropy', 
         optimizer='adam', 
         metrics=['accuracy']
     )
 
-    history = model.fit(X_train, y_train, batch_size=5, epochs=10, verbose=1, validation_split=0.2)
+    History = model.fit(X_train, y_train, epochs=75, validation_split=0.2)
+    loss, accuracy = model.evaluate(X_test,  y_test) 
+    print('\n'+'Accuracy:', accuracy)
+    print('Loss:', loss)
 
-    '''plt.plot(history.history['loss'])
-    plt.plot(history.history['val_loss'])
-    plt.title('loss')
+    'predicted = model.predict(X_test)'
+    'print(History.history.keys())'
+
+    # summarize history for accuracy
+    plt.plot(History.history['accuracy'])
+    plt.plot(History.history['val_accuracy'])
+    plt.title('accuracy vs epoch')
+    plt.ylabel('accuracy')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'validation'], loc='upper left')
+    plt.show()
+    # summarize history for loss
+    plt.plot(History.history['loss'])
+    plt.plot(History.history['val_loss'])
+    plt.title('loss vs epoch')
     plt.ylabel('loss')
     plt.xlabel('epoch')
-    plt.legend(['train','test'], loc='upper left')
-    plt.show()'''
+    plt.legend(['train', 'validation'], loc='upper left')
+    plt.show()
 
-    test_loss, test_acc = model.evaluate(X_test,  y_test, verbose=1) 
-    print('Accuracy:', test_acc)
-    print('Loss:', test_loss)
+    # combined
+    pandas.DataFrame(History.history).plot(figsize=(7,5))
+    plt.show()
 
-    '''y_pred = model.predict(X_test)
-    print('Accuracy:', metrics.accuracy_score(y_test, y_pred))'''
+    'print(metrics.roc_auc_score(y_test, predicted))'
 
-    '''print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
-    print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
-    print('Root Mean Squared Error:', numpy.sqrt(metrics.mean_squared_error(y_test, y_pred)))'''
-
-'Function Calls' 
+'Function Calls:' 
 'regressor_models()'
 'classifier_models()'
-neural_network()
+'neural_network()'
 
 '''
 Goals:
-1) Tensorflow neural network
-3) XGBoost parameters
+1) XGBoost parameters
+2) Tune Neural Network
+3) Start making website; hope data request goes through
 '''
