@@ -147,7 +147,8 @@ def neural_network():
 
     input_layer = Input(shape=(X.shape[1],)) ;'63'
     dl1 = Dense(32, activation='relu')(input_layer)
-    output_layer = Dense(1)(dl1)
+    dl2 = Dense(16, activation='relu')(dl1)
+    output_layer = Dense(1, activation='sigmoid')(dl2)
 
     model = Model(inputs = input_layer, outputs=output_layer)
     model.compile(
