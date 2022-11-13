@@ -94,7 +94,7 @@ def classifier_models():
     
     xgbtree = xgb.XGBClassifier()
     xgbtree = xgbtree.fit(X_train,y_train)
-    'predicted = xgbtree.predict(X_test)'
+    predicted = xgbtree.predict(X_test)
     
     randomForest = RandomForestClassifier()
     randomForest = randomForest.fit(X_train,y_train)
@@ -119,7 +119,8 @@ def classifier_models():
     print("Accuracy of NB Classifier Model:",naiveBayesModel.score(X_test, y_test))
     print("Accuracy of LD Classifier Model:",linDiscrimModel.score(X_test, y_test))
 
-    '''
+    print(metrics.classification_report(y_test, predicted))
+
     Accuracy = metrics.accuracy_score(y_test, predicted)
     Precision = metrics.precision_score(y_test, predicted)
     Sensitivity_recall = metrics.recall_score(y_test, predicted)
@@ -128,7 +129,7 @@ def classifier_models():
 
     #metrics:
     print({"Accuracy":Accuracy,"Precision":Precision,"Sensitivity_recall":Sensitivity_recall,"Specificity":Specificity,"F1_score":F1_score})
-    '''
+    
 
 def neural_network():
     df = pandas.read_csv('largecategoricaltestdata.csv', sep=';')
@@ -190,12 +191,12 @@ def neural_network():
 
 'Function Calls:' 
 'regressor_models()'
-'classifier_models()'
+classifier_models()
 'neural_network()'
 
 '''
 Goals:
 1) XGBoost parameters
-2) Tune Neural Network
-3) Start making website; hope data request goes through
+2) Penalize neural network for favoring class 0 ("No")
+3) Start making website; hope PLCO data request goes through
 '''
