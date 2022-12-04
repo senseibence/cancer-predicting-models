@@ -130,7 +130,6 @@ def classifier_models():
     #metrics:
     print({"Accuracy":Accuracy,"Precision":Precision,"Sensitivity_recall":Sensitivity_recall,"Specificity":Specificity,"F1_score":F1_score})
     
-
 def neural_network():
     df = pandas.read_csv('largecategoricaltestdata.csv', sep=';')
     
@@ -191,7 +190,7 @@ def neural_network():
 
 'Function Calls:' 
 'regressor_models()'
-classifier_models()
+'classifier_models()'
 'neural_network()'
 
 '''
