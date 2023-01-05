@@ -10,8 +10,7 @@ XGBoost Confusion Matrix
 ![image](https://cdn.discordapp.com/attachments/953870034227302470/1060393135978577920/image.png)
 
 
-Neural Network Graphs
-
 ![image](https://user-images.githubusercontent.com/72169848/201548020-ea3ea9bf-3fa5-43c5-b601-0fb1945b46c4.png)
 
 ![image](https://user-images.githubusercontent.com/72169848/201548022-82344913-ea0e-4722-bd87-901b0b2940ee.png)
+Neural Network Graphs
