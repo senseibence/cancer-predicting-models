@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Do You Have Colon Cancer?</title>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+	<h3>Take this quick health quiz!</h3>
+
+<div>
+<form action="/predict" method="POST">
+
+	<label for="age">Age</label>
+	<input type="text" id="age" name="age">
+	<br>
+
+	<label for="sex">Sex</label>
+	<select id="sex" name="sex">
+	<option value="1">Man</option>
+	<option value="2">Woman</option>
+	</select>
+	<br>
+
+	<label for="race">Race</label>
+	<select id="race" name="race">
+	<option value="1">White, Non-Hispanic</option>
+	<option value="2">Black, Non-Hispanic</option>
+	<option value="3">Hispanic</option>
+	<option value="4">Asian</option>
+  <option value="5">Pacific Islander</option>
+	<option value="6">American Indian</option>
+	<option value="7">Missing</option>
+	</select>
+	<br>
+
+	<input type="submit" value="Submit">
+</form>
+
+  <br>
+  <br>
+  {{ prediction }}
+
+</div>
+</body>
+</html>
