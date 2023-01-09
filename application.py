@@ -1,29 +1,30 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 import joblib
-import numpy
 
-app = Flask(__name__)
-model = joblib.load('XGBoost_DT.pkl')
+application = Flask(__name__)
 
-@app.route("/")
+file = open("model.pkl", "rb")
+model = joblib.load(file)
+
+@application.route("/")
 def home():
     return render_template('index.html')
 
-@app.route("/index.html")
+@application.route("/index.html")
 def index():
     return render_template('index.html')
 
-@app.route("/pages/about.html")
+@application.route("/pages/about.html")
 def about():
     return render_template('/pages/about.html')
 
-@app.route('/predict', methods=['POST'])
+@application.route('/predict', methods=['POST'])
 def predict():
 
     features = request.form.to_dict()
     features = list(features.values())
     features = list(map(int, features))
-  
+    
     prediction = model.predict([features])
 
     result = 'Failed'
@@ -33,4 +34,4 @@ def predict():
     return render_template('index.html', prediction = 'Colon Cancer Prediction: '+result)
 
 if __name__ == '__main__':
-     app.run(debug=True)
+    application.run()
