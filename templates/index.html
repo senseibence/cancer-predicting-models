@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
-  <title>Do You Have Colon Cancer?</title>
+  <title>Cancer Prediction</title>
 </head>
 
 <body>
@@ -16,13 +17,30 @@
     </nav>
   </header>
 
-	<h3>Take this quick health quiz!</h3>
+	<h3>Take This Health Questionnaire for Your Recommendation!</h3>
 
 <div>
+
 <form action="/predict" method="POST">
 
-	<label for="age">Age</label>
-	<input type="text" id="age" name="age">
+	<label for="age">Age (years)</label>
+	<input type="number" id="age" name="age" required>
+	
+	<br>
+	<br>
+
+	<label for="height1">Height (feet)</label>
+	<input type="number" id="height1" name="height1" required> 
+	<label for="height2">Height (inches)</label>
+	<input type="number" id="height2" name="height2" required> 
+	
+	<br>
+	<br>
+
+	<label for="weight">Weight (pounds)</label>
+	<input type="number" id="weight" name="weight" required>
+	
+	<br>
 	<br>
 
 	<label for="sex">Sex</label>
@@ -30,10 +48,12 @@
 	<option value="1">Man</option>
 	<option value="2">Woman</option>
 	</select>
+
+	<br>
 	<br>
 
-	<label for="race">Race</label>
-	<select id="race" name="race">
+	<label for="race7">Race</label>
+	<select id="race7" name="race7">
 	<option value="1">White, Non-Hispanic</option>
 	<option value="2">Black, Non-Hispanic</option>
 	<option value="3">Hispanic</option>
@@ -42,15 +62,300 @@
 	<option value="6">American Indian</option>
 	<option value="7">Missing</option>
 	</select>
+	
+	<br>
 	<br>
 
+	<label for="educat">Education</label>
+	<select id="educat" name="educat">
+	<option value="1">Less Than 8 Years</option>
+	<option value="2">8-11 Years</option>
+	<option value="3">12 Years Or Completed High School</option>
+	<option value="4">Post High School Training Other Than College</option>
+    <option value="5">Some College</option>
+	<option value="6">College Graduate</option>
+	<option value="7">Postgraduate</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="marital">Marital status</label>
+	<select id="marital" name="marital">
+	<option value="1">Married Or Living As Married</option>
+	<option value="2">Widowed</option>
+	<option value="3">Divorced</option>
+	<option value="4">Separated</option>
+    <option value="5">Never Married</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="occupat">Occupation status</label>
+	<select id="occupat" name="occupat">
+	<option value="1">Homemaker</option>
+	<option value="2">Working</option>
+	<option value="3">Unemployed</option>
+	<option value="4">Retired</option>
+    <option value="5">Extended Sick Leave</option>
+	<option value="6">Disabled</option>
+	<option value="7">Other</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="cig_stat">Cigarette smoking status</label>
+	<select id="cig_stat" name="cig_stat">
+	<option value="0">Never Smoked Cigarettes</option>	
+	<option value="1">Current Cigarette Smoker</option>
+	<option value="2">Former Cigarette Smoker</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="cig_years">Duration smoked cigarettes (years)</label>
+	<input type="number" id="cig_years" name="cig_years" required>
+	
+	<br>
+	<br>
+
+	<label for="cigpd_f">Number of cigarettes smoked per day</label>
+	<select id="cigpd_f" name="cigpd_f">
+	<option value="0">0</option>
+	<option value="1">1-10</option>
+	<option value="2">11-20</option>
+	<option value="3">21-30</option>
+    <option value="4">31-40</option>
+	<option value="5">41-60</option>
+	<option value="6">61-80</option>
+	<option value="7">81+</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="cigar">Cigar smoking status</label>
+	<select id="cigar" name="cigar">
+	<option value="0">Never Smoked Cigars</option>	
+	<option value="1">Current Cigar Smoker</option>
+	<option value="2">Former Cigar Smoker</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="pipe">Pipe smoking status</label>
+	<select id="pipe" name="pipe">
+	<option value="0">Never Smoked Pipes</option>	
+	<option value="1">Current Pipe Smoker</option>
+	<option value="2">Former Pipe Smoker</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="fh_cancer">Do any of your first-degree relatives (parents, full-siblings, and children) have a history of any cancer, excluding basal cell skin cancers?</label>
+	<select id="fh_cancer" name="fh_cancer">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="colo_fh">Do any of your first-degree relatives have a history of colon cancer?</label>
+	<select id="colo_fh" name="colo_fh">
+	<option value="0">No</option>	
+	<option value="1">Yes, Immediate Family Member</option>
+	<option value="9">Possibly - Relative Or Cancer Type Not Clear</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="colo_fh_cnt">Number of first-degree relatives with colon cancer</label>
+	<input type="number" id="colo_fh_cnt" name="colo_fh_cnt" required>
+	
+	<br>
+	<br>
+
+	<label for="asppd">Aspirin use</label>
+	<select id="asppd" name="asppd">
+	<option value="0">None</option>
+	<option value="1">1/Day</option>
+	<option value="2">2+/Day</option>
+	<option value="3">1/Week</option>
+    <option value="4">2/Week</option>
+	<option value="5">3-4/Week</option>
+	<option value="6">&lt2/Month</option>
+	<option value="7">2-3/Month</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="ibuppd">Ibuprofen use</label>
+	<select id="ibuppd" name="ibuppd">
+	<option value="0">None</option>
+	<option value="1">1/Day</option>
+	<option value="2">2+/Day</option>
+	<option value="3">1/Week</option>
+    <option value="4">2/Week</option>
+	<option value="5">3-4/Week</option>
+	<option value="6">&lt2/Month</option>
+	<option value="7">2-3/Month</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="arthrit_f">Have you ever had arthritis?</label>
+	<select id="arthrit_f" name="arthrit_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="bronchit_f">Have you ever had bronchitis?</label>
+	<select id="bronchit_f" name="bronchit_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="colon_comorbidity">Have you ever had colon comorbidities?</label>
+	<select id="colon_comorbidity" name="colon_comorbidity">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="diabetes_f">Have you ever had diabetes?</label>
+	<select id="diabetes_f" name="diabetes_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="divertic_f">Have you ever had diverticulitis or diverticulosis?</label>
+	<select id="divertic_f" name="divertic_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="emphys_f">Have you ever had emphysema?</label>
+	<select id="emphys_f" name="emphys_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="gallblad_f">Have you ever had gallbladder stones or inflammation?</label>
+	<select id="gallblad_f" name="gallblad_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="hearta_f">Have you ever had a heart attack?</label>
+	<select id="hearta_f" name="hearta_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="hyperten_f">Have you ever had hypertension?</label>
+	<select id="hyperten_f" name="hyperten_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="liver_comorbidity">Have you ever had liver comorbidities?</label>
+	<select id="liver_comorbidity" name="liver_comorbidity">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="osteopor_f">Have you ever had osteoporosis?</label>
+	<select id="osteopor_f" name="osteopor_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="polyps_f">Have you ever had colorectal polyps?</label>
+	<select id="polyps_f" name="polyps_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+	<br>
+
+	<label for="stroke_f">Have you ever had a stroke?</label>
+	<select id="stroke_f" name="stroke_f">
+	<option value="0">No</option>	
+	<option value="1">Yes</option>
+	<option value="0">I don't know</option>
+	</select>
+	
+	<br>
+
+	<h3> Thank you for taking the time to complete this questionnaire. Submit and scroll down for your results! </h3>
+
 	<input type="submit" value="Submit">
+
 </form>
 
-  <br>
-  <br>
-  {{ prediction }}
+  <h3> {{ prediction }} </h3>
 
 </div>
+
 </body>
+
 </html>
