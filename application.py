@@ -1,8 +1,8 @@
 from flask import Flask, request, render_template
 import joblib
+import json
 # import keras
 # import numpy
-import json
 
 keys = [
 
@@ -78,7 +78,7 @@ def index():
 def about():
     return render_template('/pages/about.html')
 
-@application.route('/predict', methods=['POST'])
+@application.route('/api', methods=['POST'])
 def predict():
 
     payloadType = request.headers.get('Content-Type')

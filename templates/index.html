@@ -399,11 +399,11 @@
 
 	function postRequest() {
 		let payload = generatePayload();
-		const values = Object.values(payload) 
+		const values = Object.values(payload);
 
 		for (let i = 0; i < values.length; i++) {
 			if (values[i].length === 0) {
-				alert('Answer all text fields')
+				alert('Answer all text fields');
 				return;
 			} 
 		}
@@ -411,7 +411,7 @@
 		payload = JSON.stringify(payload);
 		 
 		let xhr = new XMLHttpRequest();
-		xhr.open('POST', 'http://127.0.0.1:5000/predict');
+		xhr.open('POST', 'https://cancerprediction.org/api');
 		xhr.setRequestHeader('Content-type', 'application/json');
 		xhr.send(payload);
 
