@@ -3,43 +3,44 @@
 <html>
 
 <head>
-  <title>Cancer Prediction</title>
+  	<title> Cancer Prediction </title>
+  	
 </head>
 
 <body>
 
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="pages/about.html">About</a></li>
-      </ul>
-    </nav>
-  </header>
+	<h4> Made by <i> Bence Lukácsy </i> </h4>
 
-	<h3>Take This Health Questionnaire for Your Recommendation!</h3>
+	<header>
+		<nav>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="pages/about.html">About</a></li>
+		</ul>
+		</nav>
+	</header>
 
-<div>
+	<h3> Health Questionnaire </h3>
 
-<form action="/predict" method="POST">
+<div id="questionnaire">
 
 	<label for="age">Age (years)</label>
-	<input type="number" id="age" name="age" required>
-	
+	<input type="number" id="age" name="age">
+
 	<br>
 	<br>
 
 	<label for="height1">Height (feet)</label>
-	<input type="number" id="height1" name="height1" required> 
+	<input type="number" id="height1" name="height1"> 
 	<label for="height2">Height (inches)</label>
-	<input type="number" id="height2" name="height2" required> 
-	
+	<input type="number" id="height2" name="height2"> 
+
 	<br>
 	<br>
 
 	<label for="weight">Weight (pounds)</label>
-	<input type="number" id="weight" name="weight" required>
-	
+	<input type="number" id="weight" name="weight">
+
 	<br>
 	<br>
 
@@ -58,11 +59,11 @@
 	<option value="2">Black, Non-Hispanic</option>
 	<option value="3">Hispanic</option>
 	<option value="4">Asian</option>
-    <option value="5">Pacific Islander</option>
+	<option value="5">Pacific Islander</option>
 	<option value="6">American Indian</option>
 	<option value="7">Missing</option>
 	</select>
-	
+
 	<br>
 	<br>
 
@@ -343,18 +344,112 @@
 	<option value="1">Yes</option>
 	<option value="0">I don't know</option>
 	</select>
-	
+
 	<br>
 
-	<h3> Thank you for taking the time to complete this questionnaire. Submit and scroll down for your results! </h3>
+	<h3> Thank you for taking the time to complete this questionnaire. Submit for your results! </h3>
 
-	<input type="submit" value="Submit">
-
-</form>
-
-  <h3> {{ prediction }} </h3>
-
+	<button id='submit' onclick="postRequest()">Submit</button> <i id="result"></i>
+	
 </div>
+
+<script>
+
+	function generatePayload() {
+
+		const object = {
+
+			"age": document.getElementById('age').value,
+			"height1": document.getElementById('height1').value,
+			"height2": document.getElementById('height2').value,
+			"weight": document.getElementById('weight').value,
+			"sex": document.getElementById('sex').value,
+			"race7": document.getElementById('race7').value,
+			"educat": document.getElementById('educat').value,
+			"marital": document.getElementById('marital').value,
+			"occupat": document.getElementById('occupat').value,
+			"cig_stat": document.getElementById('cig_stat').value,
+			"cig_years": document.getElementById('cig_years').value,
+			"cigpd_f": document.getElementById('cigpd_f').value,
+			"cigar": document.getElementById('cigar').value,
+			"pipe": document.getElementById('pipe').value,
+			"fh_cancer": document.getElementById('fh_cancer').value,
+			"colo_fh": document.getElementById('colo_fh').value,
+			"colo_fh_cnt": document.getElementById('colo_fh_cnt').value,
+			"asppd": document.getElementById('asppd').value,
+			"ibuppd": document.getElementById('ibuppd').value,
+			"arthrit_f": document.getElementById('arthrit_f').value,
+			"bronchit_f": document.getElementById('bronchit_f').value,
+			"colon_comorbidity": document.getElementById('colon_comorbidity').value,
+			"diabetes_f": document.getElementById('diabetes_f').value,
+			"divertic_f": document.getElementById('divertic_f').value,
+			"emphys_f": document.getElementById('emphys_f').value,
+			"gallblad_f": document.getElementById('gallblad_f').value,
+			"hearta_f": document.getElementById('hearta_f').value,
+			"hyperten_f": document.getElementById('hyperten_f').value,
+			"liver_comorbidity": document.getElementById('liver_comorbidity').value,
+			"osteopor_f": document.getElementById('osteopor_f').value,
+			"polyps_f": document.getElementById('polyps_f').value,
+			"stroke_f": document.getElementById('stroke_f').value,
+
+		}
+
+		return object;
+	}
+
+	function postRequest() {
+		let payload = generatePayload();
+		const values = Object.values(payload) 
+
+		for (let i = 0; i < values.length; i++) {
+			if (values[i].length === 0) {
+				alert('Answer all text fields')
+				return;
+			} 
+		}
+		
+		payload = JSON.stringify(payload);
+		 
+		let xhr = new XMLHttpRequest();
+		xhr.open('POST', 'http://127.0.0.1:5000/predict');
+		xhr.setRequestHeader('Content-type', 'application/json');
+		xhr.send(payload);
+
+		xhr.onload = function() {
+
+			if (xhr.status != 200) { 
+				alert(`Error ${xhr.status}: ${xhr.statusText}`);
+			} 
+			
+			else { 
+
+				json = xhr.responseText;
+				obj = JSON.parse(json);
+				results = obj.results;
+				cancerPrediction = results.prediction;
+				predictionProbability = results.probability;
+
+				if (cancerPrediction === "no") {
+					result = 'Based on your features, the model is '+predictionProbability+' confident that you can safely forgo a screening for colon cancer. Please remember that this is not a diagnosis';
+					document.getElementById('result').innerHTML = result;
+				}
+
+				else if (cancerPrediction === 'yes') {
+					result = 'Based on your features, the model is '+predictionProbability+' confident that you should get screened for colon cancer. Please remember that this is not a diagnosis';
+					document.getElementById('result').innerHTML = result;
+				}
+
+			}
+
+		};
+
+		xhr.onerror = function() {
+			alert('Request failed');
+		};
+
+	}
+
+</script>
 
 </body>
 
