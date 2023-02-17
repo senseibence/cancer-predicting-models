@@ -78,6 +78,18 @@ def index():
 def about():
     return render_template('/pages/about.html')
 
+@application.route("/pages/colon.html")
+def colon():
+    return render_template('/pages/colon.html')
+
+@application.route("/pages/pancreatic.html")
+def pancreatic():
+    return render_template('/pages/pancreatic.html')
+
+@application.route("/pages/lung.html")
+def lung():
+    return render_template('/pages/lung.html')
+
 @application.route('/api', methods=['POST'])
 def predict():
 
@@ -129,4 +141,4 @@ def predict():
     else: return 'Payload not of type JSON'
     
 if __name__ == '__main__':
-    application.run(debug=True)
+    application.run(debug=True) # deployment: remove "debug=True"
