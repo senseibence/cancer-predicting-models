@@ -1,58 +1,76 @@
-/* Styling the Body element i.e. Color, Font, Alignment */
-body {
-    background-color: rgb(173, 216, 230); /*rgb(173, 216, 230);*/
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
+h1 {
     text-align: center;
+    font-family: Garamond, serif; 
+    font-size: 2.25rem;
+    color: #2b2929;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
+    opacity: 0;
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-duration: 1.5s;
 }
 
 /* Styling the Form (Color, Padding, Shadow) */
-#questionnaire {
-    background-color: #fff;
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px 20px;
-    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Styling form-control Class */
-#questionnaire {
-    text-align: left;
-    margin-bottom: 25px;
+.questionnaire {
+    background-color: #f2f2f2;
+    max-width: 31.25rem;
+    margin: 1.875rem auto;
+    padding: 1.875rem 1.25rem;
+    box-shadow: 0.125rem 0.3125rem 0.625rem #2b2929;
+    opacity: 0;
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-duration: 1.5s;
 }
 
 /* Styling form-control Label */
-#questionnaire label {
+.questionnaire label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
-/* Styling form-control input,
-select, textarea */
-#questionnaire input,
-#questionnaire select,
-#questionnaire textarea {
-    border: 1px solid #777;
-    border-radius: 2px;
-    font-family: inherit;
-    padding: 10px;
+/* Styling form-control input, select, textarea */
+.questionnaire input,
+.questionnaire select,
+.questionnaire textarea {
+    border: 0.0625rem solid #777;
+    border-radius: 0.125rem;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0.625rem;
     display: block;
-    width: 95%;
+    width:100%;
+    box-sizing:border-box;
 }
 
 /* Styling Button */
 button {
     background-color: rgb(173, 216, 230);
-    border: 1px solid #777;
-    border-radius: 2px;
-    font-family: inherit;
-    font-size: 21px;
+    border: 0.0625rem solid #777;
+    border-radius: 0.125rem;
+    font-family: Garamond, serif; 
+    font-size: 1.3125rem;
     display: block;
     width: 100%;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 2.5rem;
+    margin-bottom: 0.9375rem;
 }
 
 button:hover {
     background-color: #656262;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(1.25rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
 }

@@ -110,7 +110,7 @@ def predict():
             features = []
             for value in data.values():
                 try: float(value)
-                except: return 'Payload values not of type int or float'
+                except: return 'Payload values not convertible to type int or float'
                 features.append(float(value))
                 
             bmi = calculateBMI(features)
@@ -129,7 +129,7 @@ def predict():
             elif (prediction == 1): recommendation = 'Screening highly recommended'
 
             package = {
-                'statusCode': 200,
+                'statusCode' : 200,
                 'results' : {
                     'prediction' : cancerPrediction,
                     'probability' : predictionProbability,

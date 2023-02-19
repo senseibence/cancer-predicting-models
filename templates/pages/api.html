@@ -25,54 +25,163 @@
     </nav>
   </header>
 
-  <h1 class="api">API Documentation</h1>
+  <span class="root">
 
-  <p>
-    cancerprediction.org’s API allows HTTP POST requests of only one type: application/json.
-  </p>
+    <h1 class="api">API Documentation</h1>
 
-  <p>
-    To make a successful API request, the following keys must be used in the given order:<br><br>
-    "age"<br>
-    "height1"<br>
-    "height2"<br>
-    "weight"<br>
-    "sex"<br>
-    "race7"<br>
-    "educat"<br>
-    "marital"<br>
-    "occupat"<br>
-    "cig_stat"<br>
-    "cig_years"<br>
-    "cigpd_f"<br>
-    "cigar"<br>
-    "pipe"<br>
-    "fh_cancer<br>"
-    "colo_fh"<br>
-    "colo_fh_cnt"<br>
-    "asppd"<br>
-    "ibuppd"<br>
-    "arthrit_f"<br>
-    "bronchit_f"<br>
-    "colon_comorbidity"<br>
-    "diabetes_f"<br>
-    "divertic_f"<br>
-    "emphys_f"<br>
-    "gallblad_f"<br>
-    "hearta_f"<br>
-    "hyperten_f"<br>
-    "liver_comorbidity"<br>
-    "osteopor_f"<br>
-    "polyps_f"<br>
-    "stroke_f"<br>
+    <div class="box">
 
-  </p>
+      <p>
+        cancerprediction.org’s API allows HTTP POST requests of only one type: <b>application/json</b>.
+        To make a successful API request, the following 32 keys must be used in the given order.
+      </p>
 
-  <h1>Examples</h1>
+      <h2>Keys</h2>
 
-  <p>
+      <p>
+        age, height1, height2, weight, sex, race7, educat, marital, occupat, cig_stat, cig_years, 
+        cigpd_f, cigar, pipe, fh_cancer, colo_fh, colo_fh_cnt, asppd, ibuppd, arthrit_f, bronchit_f, 
+        colon_comorbidity, diabetes_f, divertic_f, emphys_f, gallblad_f, hearta_f, hyperten_f, 
+        liver_comorbidity, osteopor_f, polyps_f, stroke_f.
+      </p>
+        
+      <h2>Values</h2>
+
+      <p>
+        Every key value must be convertible to either type int or float.<br><br>
+
+        <b>age</b>: years<br>
+        <b>height1</b>: feet<br>
+        <b>height2</b>: inches<br> 
+        <b>weight</b>: pounds<br><br>
+
+        <b>sex</b>:<br>
+        1=“Male”<br>
+        2=“Woman”<br><br>
+
+        <b>race7</b>:<br>
+        1=“White, Non-Hispanic”<br>
+        2=“Black, Non-Hispanic”<br>
+        3=“Hispanic”<br>
+        4=“Asian”<br>
+        5=“Pacific Islander”<br>
+        6=“American Indian”<br>
+        7=“Missing”<br><br>
+
+        <b>educat</b>:<br>
+        1=“Less Than 8 Years”<br>
+        2=“8-11 Years”<br>
+        3=“12 Years Or Completed High School”<br>
+        4=“Post High School Training Other Than College”<br>
+        5=“Some College”<br>
+        6=“College Graduate”<br>
+        7=“Postgraduate”<br><br>
+
+        <b>marital</b>:<br>
+        1=“Married Or Living As Married”<br>
+        2=“Widowed”<br>
+        3=“Divorced”<br>
+        4=“Separated”<br>
+        5=“Never Married”<br><br>
+
+        <b>occupat</b>:<br>
+        1=“Homemaker”<br>
+        2=“Working”<br>
+        3=“Unemployed”<br>
+        4=“Retired”<br>
+        5=“Extended Sick Leave”<br>
+        6=“Disabled”<br>
+        7=“Other”<br><br>
+
+        <b>cig_stat</b>:<br>
+        0=“Never Smoked Cigarettes”<br>
+        1=“Current Cigarette Smoker”<br>
+        2=“Former Cigarette Smoker”<br><br>
+
+        <b>cig_years</b>: 0.5=“Six Months”<br><br>
+
+        <b>cigpd_f</b> (packs of cigarettes per day):<br>
+        0=“0”<br>
+        1=“1-10”<br>
+        2=“11-20”<br>
+        3=“21-30”<br>
+        4=“31-40”<br>
+        5=“41-60”<br>
+        6=“61-80”<br>
+        7=“81+”<br><br>
+
+        <b>cigar</b>:<br>
+        0=“Never”<br>
+        1=“Current Cigar Smoker”<br>
+        2=“Former Cigar Smoker”<br><br>
+
+        <b>pipe</b>:<br>
+        0=“Never”<br>
+        1=“Current Pipe Smoker”<br>
+        2=“Former Pipe Smoker”<br><br>
+
+        <b>fh_cancer</b> (first-degree relatives with cancer, skin cancer excluded):<br>
+        0=“No”<br>
+        1=“Yes”<br><br>
+
+        <b>colo_fh</b> (first-degree relatives with colon cancer):<br>
+        0=“No”<br>
+        1=“Yes, Immediate Family Member”<br>
+        9=“Possibly - Relative Or Cancer Type Not Clear”<br><br>
+
+        <b>colo_fh_cnt</b>: # of Relatives with Colorectal Cancer<br><br>
+
+        <b>asppd</b> (aspirin usage):<br>
+        0=“None”<br>
+        1=“1/Day”<br>
+        2=“2+/Day”<br>
+        3=“1/Week”<br>
+        4=“2/Week”<br>
+        5=“3-4/Week”<br>
+        6=“&lt2/Month”<br>
+        7=“2-3/Month”<br><br>
+
+        <b>ibuppd</b> (ibuprofen usage): refer to <b>asppd</b><br><br>
+
+        For every subsequent key, if the disease/event did not occur, 0=“No”, and if it did, 1=“Yes”. The keys refer to the following, in order:<br><br>
+        Arthritis<br>
+        Bronchitis<br>
+        Colon Comorbidities<br>
+        Diabetes<br>
+        Diverticulitis/Diverticulosis<br>
+        Emphysema<br>
+        Gallbladder Stones or Inflammation<br>
+        Heart Attack<br>
+        Hypertension<br>
+        Liver Comorbidities<br>
+        Osteoporosis<br>
+        Colorectal Polyps<br>
+        Stroke<br>
+      </p>
+        
+    </div>
+
+    <h1>Examples</h1>
+
+    <div class="box">
+
+      <h2>Using Postman</h2>
+
+      <img src="../../static/images/postman.jpg" alt="Postman JSON Example">
+
+      <p>Note the mixed use of strings, floats, and integers.</p>
+
+      <h2>Creating an XMLHttpRequest (XHR)</h2>
+
+      <img src="../../static/images/xhr_small.jpg" alt="XHR Example">
+
+      <p>Payload must be JSON.</p>
+
+    </div>
+
     
-  </p>
+
+  </span>
 
 </body>
 </html>

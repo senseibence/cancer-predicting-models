@@ -1,9 +1,10 @@
 h1 {
-    font-family: Garamond, serif;  
+    font-family: Garamond, serif; 
     font-size: 2.25rem;
     line-height: normal;
     color: #2b2929;
-    margin-top: 1.5625rem;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
     margin-left: 6.25rem;
 }
 
@@ -11,13 +12,48 @@ h1.api {
     margin-top: 3.125rem;
 }
 
+h2 {
+    font-family: Garamond, serif; 
+    font-size: normal;
+    line-height: normal;
+    color: #2b2929;
+    margin-top: 1.5625rem;
+}
+
 p {
-    font-family: 'Times New Roman', Times, serif, serif; 
-    font-size: 1.375rem;
+    text-align: justify;
+    font-family: Garamond, serif; 
+    font-size: 1.25rem;
     line-height: 1.875rem;
     color: #2b2929;
     margin-top: 1.5625rem;
+    letter-spacing: normal;
+}
+
+.box {
+    background-color: #f2f2f2;
     margin-right: 6.25rem;
     margin-left: 6.25rem;
-    letter-spacing: normal;
+    padding: 0.0625rem 2rem;
+    box-shadow: 0.125rem 0.3125rem 0.625rem #2b2929;
+}
+
+.root {
+    opacity: 0;
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(1.25rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
 }
