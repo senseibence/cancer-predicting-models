@@ -2,7 +2,12 @@
 <html>
 
 <head>
+
   <title>Cancer Prediction</title>
+
+  <link rel="stylesheet" href="../../static/css/navbar.css">
+  <link rel="stylesheet" href="../../static/css/about.css">
+  
 </head>
 
 <body>
@@ -10,16 +15,55 @@
   <header>
     <nav>
       <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="colon.html">Colon</a></li>
-        <li><a href="pancreatic.html">Pancreatic</a></li>
-        <li><a href="lung.html">Lung</a></li>
+        <li><a class="pages" href="../index.html">Home</a></li>
+        <li><a class="pages" href="about.html">About</a></li>
+        <li><a class="pages" href="api.html">API</a></li>
+        <li><a class="pages" href="colon.html">Colon</a></li>
+        <li><a class="pages" href="pancreatic.html">Pancreatic</a></li>
+        <li><a class="pages" href="lung.html">Lung</a></li>
       </ul>
     </nav>
   </header>
 
-  <a href=https://github.com/senseibence/cancer-predicting-models><h3>Source Code</h3></a> 
+  <h1 class="about">About</h1>
+
+  <p>
+    My name is <i> Bence Lukácsy </i> and I created this website to help people assess their risk for cancer and encourage them to get a screening test. 
+    The website provides questionnaires that ask users a series of questions about their medical history, lifestyle, and other factors that can influence their risk for cancer. 
+    Based on their answers, the website provides a recommendation on whether or not they should consider getting a screening test. Currently, my primary focus is colorectal (colon) cancer.
+  </p>
+
+  <p>
+    Regarding colorectal cancer, <a class="sources" href="https://www.cdc.gov/vitalsigns/colorectalcancerscreening/index.html">the CDC reports</a> that approximately “1 in 3 adults (23 million) between 50 and 75 years old [are] not getting tested as recommended.” 
+    Screening tests are among the most effective methods for early cancer detection, but several reasons discourage people from getting tested.    
+    Colonoscopies, for example, are invasive procedures, and even the noninvasive alternatives can be expensive, interfere with one’s diet, and produce false-positive results.
+    This website provides a completely free, accessible, and accurate method for analyzing cancer risk. My goal is to encourage people to get the appropriate screening test for them.
+  </p>
+   
+  <h1>How does it work?</h1>
+
+  <p>
+    Upon completing a questionnaire, the answers will be inputted into a machine learning model that I have created. 
+    The model will predict a user’s cancer risk and the website will display the percentage and subsequent recommendation.
+    Please remember that although the model is accurate on its training and testing data, it is NOT a substitute for cancer diagnosis.
+    The model’s purpose is solely to encourage users to get an appropriate screening test, not claim that they have cancer. 
+  </p>
+
+  <p>
+    An alternative to the questionnaires is my API. 
+    If using the website is not ideal for a user, then the <a class="sources" href="api.html"> API documentation</a> will make clear how to create a POST request to receive the same results that the website would provide.  
+  </p>
+
+  <p>
+    <a class="sources" href="https://github.com/senseibence/cancer-predicting-models">The code</a> for the machine learning models used on this website—which include neural networks and decision trees—is open source.
+    Users may create a pull request (PR) if they wish to improve either the models or website.
+  </p>
+
+  <h1>Contact</h1>
+
+  <p>Email: bence.lukacsy+inquiries@gmail.com</p>
+
+  <p>Phone: (415) 638-7304</p>
 
 </body>
 </html>

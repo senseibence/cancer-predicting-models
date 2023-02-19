@@ -90,6 +90,10 @@ def pancreatic():
 def lung():
     return render_template('/pages/lung.html')
 
+@application.route("/pages/api.html")
+def api():
+    return render_template('/pages/api.html')
+
 @application.route('/api', methods=['POST'])
 def predict():
 

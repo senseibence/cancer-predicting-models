@@ -1,0 +1,60 @@
+.welcome-message span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Garamond, serif; 
+    color: #2b2929;
+    font-size: 2.25rem;
+    font-weight: bold;
+    text-transform: none;
+    letter-spacing: 0.0625rem;
+}
+
+.first {
+    opacity: 0;
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    padding: 3.125rem 0rem 0rem 0rem;
+}
+
+.first .word:nth-child(1) {
+    animation-delay: 0s;
+    animation-duration: 1s;
+    padding: 0rem;
+}
+
+.first .word:nth-child(2) {
+    animation-delay: 0.75s;
+    animation-duration: 1s;
+    padding: 0rem 0rem 0rem 0.6875rem;
+}
+
+.word {
+    opacity: 0;
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    padding: 0.625rem 0rem 0rem 0rem;
+}
+
+.word:nth-child(2) {
+    animation-delay: 1.5s;
+    animation-duration: 1s;
+}
+
+.word:nth-child(3) {
+    animation-delay: 3s;
+    animation-duration: 1s;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(1.25rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}

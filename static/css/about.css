@@ -1,0 +1,35 @@
+h1 {
+    font-family: Garamond, serif;  
+    font-size: 2.25rem;
+    line-height: normal;
+    color: #2b2929;
+    margin-top: 1.5625rem;
+    margin-left: 6.25rem;
+}
+
+h1.about {
+    margin-top: 3.125rem;
+}
+
+p, a.sources {
+    font-family: 'Times New Roman', Times, serif, serif; 
+    font-size: 1.375rem;
+    line-height: 1.875rem;
+    color: #2b2929;
+    margin-top: 1.5625rem;
+    margin-right: 6.25rem;
+    margin-left: 6.25rem;
+    letter-spacing: normal;
+}
+
+a.sources {
+    margin: 0; 
+    padding: 0;
+    color: rgb(5, 99, 193);
+}
+
+/*background-color: #fff;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);*/
