@@ -5,11 +5,11 @@ This is an independant project for ISEF 2023. As of current, only colorectal dat
 
 https://www.cancerprediction.org/
 
-![image](https://cdn.discordapp.com/attachments/953870034227302470/1064345389496537218/image.png)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1077035131056959608/xgboost_confusion_matrix.png)
 
 XGBoost Confusion Matrix
 
-![image](https://cdn.discordapp.com/attachments/953870034227302470/1060393135978577920/image.png)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1077035638693572691/xgboost_stats.png)
 
 ![image](https://user-images.githubusercontent.com/72169848/201548020-ea3ea9bf-3fa5-43c5-b601-0fb1945b46c4.png)
 
