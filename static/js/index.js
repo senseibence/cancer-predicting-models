@@ -17,8 +17,6 @@ function generatePayload() {
         "cigar": document.getElementById('cigar').value,
         "pipe": document.getElementById('pipe').value,
         "fh_cancer": document.getElementById('fh_cancer').value,
-        "colo_fh": document.getElementById('colo_fh').value,
-        "colo_fh_cnt": document.getElementById('colo_fh_cnt').value,
         "asppd": document.getElementById('asppd').value,
         "ibuppd": document.getElementById('ibuppd').value,
         "arthrit_f": document.getElementById('arthrit_f').value,

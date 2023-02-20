@@ -1,8 +1,7 @@
 from flask import Flask, request, render_template
 import joblib
 import json
-# import keras
-# import numpy
+import keras
 
 keys = [
 
@@ -21,8 +20,6 @@ keys = [
     'cigar',
     'pipe',
     'fh_cancer',
-    'colo_fh',
-    'colo_fh_cnt',
     'asppd',
     'ibuppd',
     'arthrit_f',
@@ -44,10 +41,8 @@ keys = [
 XGBmodel = joblib.load('XGBmodel.pkl')
 XGBscaler = joblib.load('XGBscaler.pkl')
 
-'''
-Neuralmodel = keras.models.load_model('C:\\Users\\bence\\Documents\\python programs\\cancer-predicting-models')
+Neuralmodel = keras.models.load_model('Neuralmodel.h5')
 Neuralscaler = joblib.load('Neuralscaler.pkl')
-'''
 
 def calculateBMI(features):
     feet = features[1]
@@ -115,8 +110,9 @@ def predict():
                 
             bmi = calculateBMI(features)
             del features[1:4]
-            features.insert(14, bmi)
+            features.insert(12, bmi)
 
+            # ML Models
             features = XGBscaler.transform([features])
             prediction = XGBmodel.predict(features)
             probability = XGBmodel.predict_proba(features)
@@ -138,7 +134,7 @@ def predict():
             }
 
             package = json.dumps(package, indent=4)
-            return package 
+            return package
         
         else: return 'Payload keys incorrect'
     
