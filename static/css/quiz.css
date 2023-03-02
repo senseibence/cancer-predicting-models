@@ -5,27 +5,17 @@ h1 {
     color: #2b2929;
     margin-top: 1.875rem;
     margin-bottom: 1.875rem;
-    opacity: 0;
-    animation-name: fade-in;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-duration: 1.5s;
 }
 
 /* Styling the Form (Color, Padding, Shadow) */
 .questionnaire {
-    background-color: #f2f2f2;
+    background-color: #fff;
     max-width: 31.25rem;
     margin: 1.875rem auto;
     padding: 1.875rem 1.25rem;
-    box-shadow: 0.125rem 0.3125rem 0.625rem #2b2929;
-    opacity: 0;
-    animation-name: fade-in;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-duration: 1.5s;
+    border-style: solid;
+    border-color: #2b2929;
+    border-radius: 1.75rem;
 }
 
 /* Styling form-control Label */
@@ -62,15 +52,4 @@ button {
 
 button:hover {
     background-color: #656262;
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        transform: translateY(1.25rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0rem);
-    }
 }

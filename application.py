@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import joblib
 import json
-import keras
+# import keras
 
 keys = [
 
@@ -41,8 +41,8 @@ keys = [
 XGBmodel = joblib.load('XGBmodel.pkl')
 XGBscaler = joblib.load('XGBscaler.pkl')
 
-Neuralmodel = keras.models.load_model('Neuralmodel.h5')
-Neuralscaler = joblib.load('Neuralscaler.pkl')
+# Neuralmodel = keras.models.load_model('Neuralmodel.h5')
+# Neuralscaler = joblib.load('Neuralscaler.pkl')
 
 def calculateBMI(features):
     feet = features[1]
@@ -69,25 +69,41 @@ def home():
 def index():
     return render_template('index.html')
 
-@application.route("/pages/about.html")
+@application.route("/about.html")
 def about():
-    return render_template('/pages/about.html')
+    return render_template('/about.html')
 
-@application.route("/pages/colon.html")
-def colon():
-    return render_template('/pages/colon.html')
-
-@application.route("/pages/pancreatic.html")
-def pancreatic():
-    return render_template('/pages/pancreatic.html')
-
-@application.route("/pages/lung.html")
-def lung():
-    return render_template('/pages/lung.html')
-
-@application.route("/pages/api.html")
+@application.route("/api.html")
 def api():
-    return render_template('/pages/api.html')
+    return render_template('/api.html')
+
+@application.route("/questionnaires/colon.html")
+def colon():
+    return render_template('/questionnaires/colon.html')
+
+@application.route("/questionnaires/pancreatic.html")
+def pancreatic():
+    return render_template('/questionnaires/pancreatic.html')
+
+@application.route("/questionnaires/lung.html")
+def lung():
+    return render_template('/questionnaires/lung.html')
+
+@application.route("/legal/disclaimer.html")
+def disclaimer():
+    return render_template('/legal/disclaimer.html')
+
+@application.route("/legal/terms-of-service.html")
+def terms_of_service():
+    return render_template('/legal/terms-of-service.html')
+
+@application.route("/legal/privacy-policy.html")
+def privacy_policy():
+    return render_template('/legal/privacy-policy.html')
+
+@application.route("/legal/cookie-policy.html")
+def cookie_policy():
+    return render_template('/legal/cookie-policy.html')
 
 @application.route('/api', methods=['POST'])
 def predict():
