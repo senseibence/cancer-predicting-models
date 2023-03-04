@@ -5,7 +5,7 @@
 
   <title>Cancer Prediction</title>
 
-  <link rel="stylesheet" href="../static/css/api.css">
+  <link rel="stylesheet" href="../static/css/text.css">
   <link rel="stylesheet" href="../static/css/navbar-footer.css">
   <link rel="stylesheet" href="../static/css/fade-in.css">
 
@@ -28,7 +28,7 @@
 
   <div class="fade">
 
-    <h1 class="api">API Documentation</h1>
+    <h1 id="first">API Documentation</h1>
 
     <div class="box">
 
@@ -37,7 +37,7 @@
         To make a successful API request, the following 32 keys must be used in the given order.
       </p>
 
-      <h2>Keys</h2>
+      <h2 class="inner-h2">Keys</h2>
 
       <p>
         age, height1, height2, weight, sex, race7, educat, marital, occupat, cig_stat, cig_years, 
@@ -46,7 +46,7 @@
         liver_comorbidity, osteopor_f, polyps_f, stroke_f.
       </p>
         
-      <h2>Values</h2>
+      <h2 class="inner-h2">Values</h2>
 
       <p>
         Every key value must be convertible to either type int or float.<br><br>
@@ -164,19 +164,19 @@
 
     <h1>Examples</h1>
 
-    <div class="box">
+    <div id="last" class="box">
 
-      <h2>Using Postman</h2>
-
-      <img src="../../static/images/postman.jpg" alt="Postman JSON Example">
+      <p></p><h2 class="inner-h2">Using Postman</h2><p></p>
+    
+      <img class="image" src="../../static/images/postman.jpg" alt="Postman JSON Example">
 
       <p>Note the mixed use of strings, floats, and integers.</p>
 
-      <h2>Creating an XMLHttpRequest (XHR)</h2>
+      <p></p><h2 class="inner-h2">Creating an XMLHttpRequest (XHR)</h2><p></p>
 
-      <img src="../../static/images/xhr_small.jpg" alt="XHR Example">
+      <img class="image" src="../../static/images/xhr_small.jpg" alt="XHR Example">
 
-      <p>Payload must be JSON.</p>
+      <p>Payload must be of type JSON.</p>
 
     </div>
 
