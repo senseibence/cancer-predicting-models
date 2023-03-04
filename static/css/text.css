@@ -6,12 +6,18 @@ h1,h2,h3 {
     margin-left: 6.25rem;
 }
 
-h1.about {
+/* top margin */
+#first {
     margin-top: 3.125rem;
 }
 
+/* bottom margin */
+#last {
+    margin-bottom: 3.125rem;
+} 
+
 .inner-h2 {
-    margin-left: 0;
+    margin: 0
 }
 
 p, a.links {
@@ -22,9 +28,10 @@ p, a.links {
 }
 
 a.links {
+    text-decoration: none;
     margin: 0; 
     padding: 0;
-    color: rgb(49, 108, 208);
+    color: #3030F1;
 }
 
 ul.lists {
@@ -52,8 +59,3 @@ li.items {
     padding: 0rem 1.5rem;
 }
 
-/* bottom margin
-.yee {
-    margin-bottom: 3.125rem;
-} 
-*/
