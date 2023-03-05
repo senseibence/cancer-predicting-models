@@ -18,3 +18,22 @@
     padding-bottom: 0.75rem;
     text-align: left;
 }
+
+.no-lines {
+    width: 100%;
+    border: 0.0625rem solid;
+}
+
+.no-lines td {
+    text-align: justify;
+    font-family: Garamond, serif; 
+    font-size: 1.25rem;
+    color: #000000;
+    padding: 0.5rem;
+    background-color: #fff;
+    text-align: right;
+}
+
+.no-lines td.left {
+    text-align: left;
+}
