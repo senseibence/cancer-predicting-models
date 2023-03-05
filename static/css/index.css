@@ -1,4 +1,4 @@
-.welcome-message span {
+.fade span {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,41 +11,19 @@
 }
 
 .first {
-    opacity: 0;
-    animation-name: fade-in;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
     padding: 3.125rem 0rem 0rem 0rem;
 }
 
 .first .word:nth-child(1) {
-    animation-delay: 0s;
-    animation-duration: 1s;
     padding: 0rem;
 }
 
 .first .word:nth-child(2) {
-    animation-delay: 0.75s;
-    animation-duration: 1s;
     padding: 0rem 0rem 0rem 0.6875rem;
 }
 
 .word {
-    opacity: 0;
-    animation-name: fade-in;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
     padding: 0.625rem 0rem 0rem 0rem;
-}
-
-.word:nth-child(2) {
-    animation-delay: 1.5s;
-    animation-duration: 1s;
-}
-
-.word:nth-child(3) {
-    animation-delay: 3s;
-    animation-duration: 1s;
 }
 
 h1 {
@@ -53,26 +31,12 @@ h1 {
     font-family: Garamond, serif; 
     font-size: 1rem;
     color: #2b2929;
-    opacity: 0;
-    animation-name: fade-in;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    animation-delay: 3s;
-    animation-duration: 1s;
     margin-top: 1rem;
 }
 
 button {
-    opacity: 0;
-    animation-name: fade-in;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    animation-delay: 3s;
-    animation-duration: 1s;
-
     margin:0 auto;
     display:block;
-
     background-color: #2b2929;
     border: 0.0625rem solid #f2f2f2;
     border-radius: 0.875rem;
@@ -86,13 +50,6 @@ button {
 }
 
 .image {
-    opacity: 0;
-    animation-name: fade-in;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    animation-delay: 3s;
-    animation-duration: 1s;
-
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -105,15 +62,4 @@ button {
 
 button:hover {
     background-color: #656262;
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        transform: translateY(1.25rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0rem);
-    }
 }
