@@ -1,0 +1,20 @@
+.tables {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.tables td, .tables th {
+    text-align: justify;
+    font-family: Garamond, serif; 
+    font-size: 1.25rem;
+    color: #000000;
+    border: 0.0625rem solid #656262;
+    padding: 0.5rem;
+    background-color: #fff;
+}
+
+.tables th {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: left;
+}

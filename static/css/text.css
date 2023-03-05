@@ -41,6 +41,20 @@ ul.lists {
     padding: 0;
 }
 
+ul.nested-lists {
+    display: inline;
+    list-style-type: circle;
+    margin: 0;
+    padding: 0;
+}
+
+ul.no-bullet-lists {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 ul li.items {
     text-align: justify;
     font-family: Garamond, serif; 
