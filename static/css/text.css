@@ -88,6 +88,26 @@ ol li.items {
     padding: 0rem 1.5rem; /* line-height = 1.25 (font-size) * 1.2 (multiplier) = 1.5 = default distance */
 }
 
+button {
+    background-color: #2b2929;
+    border: 0.0625rem solid #fff;
+    border-radius: 0.875rem;
+    font-family: Garamond, serif; 
+    color: #f2f2f2;
+    font-size: 1.25rem;
+    width: 10rem;
+    padding: 0.875rem;
+}
+
+button:enabled:hover {
+    background-color: #656262;
+}
+
+button:disabled {
+    background-color: #747070;
+    color: #cecece
+}
+
 .image {
     width: 25%; 
     border-style: solid;

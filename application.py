@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, make_response, redirect
 import joblib
 import json
 # import keras
@@ -79,7 +79,9 @@ def api():
 
 @application.route("/questionnaires/colon.html")
 def colon():
-    return render_template('/questionnaires/colon.html')
+    cookie = request.cookies.get('ToS_agreed')
+    if (cookie == 'true'): return render_template('/questionnaires/colon.html')
+    else: return redirect('/legal/agreement.html')
 
 @application.route("/questionnaires/pancreatic.html")
 def pancreatic():
@@ -104,6 +106,24 @@ def privacy_policy():
 @application.route("/legal/cookie-policy.html")
 def cookie_policy():
     return render_template('/legal/cookie-policy.html')
+
+@application.route("/legal/agreement.html")
+def agreement():
+    cookie = request.cookies.get('ToS_agreed')
+    if (cookie == 'true'): return redirect('/questionnaires/colon.html')
+    else: return render_template('/legal/agreement.html')
+
+@application.route('/setcookie', methods=['POST'])
+def setcookie():
+    answer = request.form.get('agreement')
+    if (answer == '1'):
+        resp = make_response(redirect('/questionnaires/colon.html'))
+        resp.set_cookie('ToS_agreed', 'true')
+        return resp
+    else:
+        resp = make_response(redirect('/legal/agreement.html'))
+        resp.set_cookie('ToS_agreed', 'false')
+        return resp
 
 @application.route('/api', methods=['POST'])
 def predict():

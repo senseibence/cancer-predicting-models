@@ -37,7 +37,7 @@ h1.quiz-header {
     font-size: 0.875rem;
     padding: 0.625rem;
     display: block;
-    width:100%;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -45,15 +45,60 @@ h1.quiz-header {
 button {
     background-color: rgb(173, 216, 230);
     border: 0.0625rem solid #777;
-    border-radius: 0.125rem;
+    border-radius: 0.875rem;
     font-family: Garamond, serif; 
     font-size: 1.25rem;
     display: block;
     width: 100%;
-    margin-top: 1.25rem;
     font-weight: bold;
+    padding: 0.3rem;
+    margin: 1.25rem auto;
 }
 
 button:hover {
     background-color: rgb(172, 202, 212);
+}
+
+.required::after {
+    content: "*";
+    color: red
+}
+
+.tooltip {
+    font-family: 'Times New Roman', Times, serif; 
+    color: #3030F1;
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip .tooltiptext {
+    font-family: Garamond, serif; 
+    font-size: normal;
+    visibility: hidden;
+    width: 20rem;
+    background-color: #2b2929;
+    color: #f2f2f2;
+    text-align: center;
+    border-radius: 0.375rem;
+    padding: 0.3125rem 0.3125rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 10%;
+    margin-left: -3.75rem;
+}
+  
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -0.3125rem;
+    border-width: 0.3125rem;
+    border-style: solid;
+    border-color: #2b2929 transparent transparent transparent;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

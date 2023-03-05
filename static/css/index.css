@@ -75,12 +75,13 @@ button {
 
     background-color: #2b2929;
     border: 0.0625rem solid #f2f2f2;
-    border-radius: 0.125rem;
+    border-radius: 0.875rem;
     font-family: Garamond, serif; 
     color: #f2f2f2;
     font-size: 1.3125rem;
     width: 11rem;
     margin-top: 3.125rem;
+    margin-bottom: 3.125rem;;
     padding: 1rem;
 }
 
@@ -99,7 +100,6 @@ button {
     border-style: solid;
     border-color: #2b2929;
     border-width: 0.1875rem;
-    margin-top: 3.125rem;
     margin-bottom: 3.125rem;
 }
 

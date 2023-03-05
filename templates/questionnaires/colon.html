@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>Cancer Prediction</title>
+  <title>Colon Cancer Questionnaire - cancerprediction.org</title>
 
   <link rel="stylesheet" href="../../static/css/quiz.css">
   <link rel="stylesheet" href="../../static/css/navbar-footer.css">
@@ -31,25 +31,25 @@
 
 <div class="questionnaire">
 
-	<label for="age">Age (years)</label>
+	<label for="age" id="age0" class="required">Age (years)</label>
 	<input type="number" id="age" name="age">
 
 	<br>
 	<br>
 
-	<label for="height1">Height (feet)</label>
+	<label for="height1" id="height10" class="required">Height (feet)</label>
 	<input type="number" id="height1" name="height1"> 
 
 	<br>
 	<br>
 
-	<label for="height2">Height (inches)</label>
+	<label for="height2" id="height20" class="required">Height (inches)</label>
 	<input type="number" id="height2" name="height2"> 
 
 	<br>
 	<br>
 
-	<label for="weight">Weight (pounds)</label>
+	<label for="weight" id="weight0" class="required">Weight (pounds)</label>
 	<input type="number" id="weight" name="weight">
 
 	<br>
@@ -119,23 +119,23 @@
 	<br>
 
 	<label for="cig_stat">Cigarette smoking status</label>
-	<select id="cig_stat" name="cig_stat">
+	<select id="cig_stat" name="cig_stat" onchange="enableQuestions()">
 	<option value="0">Never Smoked Cigarettes</option>	
 	<option value="1">Current Cigarette Smoker</option>
 	<option value="2">Former Cigarette Smoker</option>
 	</select>
 	
-	<br>
-	<br>
+	<br id="hide1" style="display:none;">
+	<br id="hide2" style="display:none;">
 
-	<label for="cig_years">Duration smoked cigarettes (years)</label>
-	<input type="number" id="cig_years" name="cig_years">
+	<label for="cig_years" id="hide3" style="display:none;">Duration smoked cigarettes (years)</label>
+	<input type="number" id="cig_years" name="cig_years" style="display:none;">
 	
-	<br>
-	<br>
+	<br id="hide4" style="display:none;">
+	<br id="hide5" style="display:none;">
 
-	<label for="cigpd_f">Number of cigarettes smoked per day</label>
-	<select id="cigpd_f" name="cigpd_f">
+	<label for="cigpd_f" id="hide6" style="display:none;">Number of cigarettes smoked per day</label>
+	<select id="cigpd_f" name="cigpd_f" style="display:none;">
 	<option value="0">0</option>
 	<option value="1">1-10</option>
 	<option value="2">11-20</option>
@@ -180,7 +180,7 @@
 	<br>
 	<br>
 
-	<label for="asppd">Aspirin use</label>
+	<label for="asppd">Aspirin usage</label>
 	<select id="asppd" name="asppd">
 	<option value="0">None</option>
 	<option value="1">1/Day</option>
@@ -196,7 +196,7 @@
 	<br>
 	<br>
 
-	<label for="ibuppd">Ibuprofen use</label>
+	<label for="ibuppd">Ibuprofen usage</label>
 	<select id="ibuppd" name="ibuppd">
 	<option value="0">None</option>
 	<option value="1">1/Day</option>
@@ -212,7 +212,9 @@
 	<br>
 	<br>
 
-	<label for="arthrit_f">Have you ever had arthritis?</label>
+	<label for="arthrit_f" class="tooltip">Have you ever had arthritis?
+		<span class="tooltiptext">Inflammation of one or more joints, causing pain and stiffness that can worsen with age</span>
+	</label>
 	<select id="arthrit_f" name="arthrit_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -222,7 +224,9 @@
 	<br>
 	<br>
 
-	<label for="bronchit_f">Have you ever had bronchitis?</label>
+	<label for="bronchit_f" class="tooltip">Have you ever had bronchitis?
+		<span class="tooltiptext">Inflammation of the lining of bronchial tubes, which carry air to and from the lungs</span>
+	</label>
 	<select id="bronchit_f" name="bronchit_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -232,7 +236,9 @@
 	<br>
 	<br>
 
-	<label for="colon_comorbidity">Have you ever had colon comorbidities?</label>
+	<label for="colon_comorbidity" class="tooltip">Have you ever had colon comorbidities?
+		<span class="tooltiptext">The simultaneous presence of two or more colon-related diseases or medical conditions</span>
+	</label>
 	<select id="colon_comorbidity" name="colon_comorbidity">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -242,7 +248,9 @@
 	<br>
 	<br>
 
-	<label for="diabetes_f">Have you ever had diabetes?</label>
+	<label for="diabetes_f" class="tooltip">Have you ever had diabetes?
+		<span class="tooltiptext">A group of diseases that result in too much sugar in the blood (high blood glucose)</span>
+	</label>
 	<select id="diabetes_f" name="diabetes_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -252,7 +260,9 @@
 	<br>
 	<br>
 
-	<label for="divertic_f">Have you ever had diverticulitis or diverticulosis?</label>
+	<label for="divertic_f" class="tooltip">Have you ever had diverticulosis or diverticulitis?
+		<span class="tooltiptext">Diverticulosis is the formation of abnormal pouches in the bowel wall. Diverticulitis is inflammation or infection of these abnormal pouches</span>
+	</label>
 	<select id="divertic_f" name="divertic_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -262,7 +272,9 @@
 	<br>
 	<br>
 
-	<label for="emphys_f">Have you ever had emphysema?</label>
+	<label for="emphys_f" class="tooltip">Have you ever had emphysema?
+		<span class="tooltiptext">A condition in which the air sacs of the lungs are damaged and enlarged, causing breathlessness</span>
+	</label>
 	<select id="emphys_f" name="emphys_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -272,7 +284,9 @@
 	<br>
 	<br>
 
-	<label for="gallblad_f">Have you ever had gallbladder stones or inflammation?</label>
+	<label for="gallblad_f" class="tooltip">Have you ever had gallbladder stones or cholecystitis?
+		<span class="tooltiptext">Gallbladder stones are hardened deposits within the fluid in the gallbladder, a small organ under the liver. Cholecystitis is inflammation of the gallbladder</span>
+	</label>
 	<select id="gallblad_f" name="gallblad_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -282,7 +296,9 @@
 	<br>
 	<br>
 
-	<label for="hearta_f">Have you ever had a heart attack?</label>
+	<label for="hearta_f" class="tooltip">Have you ever had a heart attack?
+		<span class="tooltiptext">A blockage of blood flow to the heart muscle</span>
+	</label>
 	<select id="hearta_f" name="hearta_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -292,7 +308,9 @@
 	<br>
 	<br>
 
-	<label for="hyperten_f">Have you ever had hypertension?</label>
+	<label for="hyperten_f" class="tooltip">Have you ever had hypertension?
+		<span class="tooltiptext">A condition in which the force of the blood against the artery walls is too high</span>
+	</label>
 	<select id="hyperten_f" name="hyperten_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -302,7 +320,9 @@
 	<br>
 	<br>
 
-	<label for="liver_comorbidity">Have you ever had liver comorbidities?</label>
+	<label for="liver_comorbidity" class="tooltip">Have you ever had liver comorbidities?
+		<span class="tooltiptext">The simultaneous presence of two or more liver-related diseases or medical conditions</span>
+	</label>
 	<select id="liver_comorbidity" name="liver_comorbidity">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -312,7 +332,9 @@
 	<br>
 	<br>
 
-	<label for="osteopor_f">Have you ever had osteoporosis?</label>
+	<label for="osteopor_f" class="tooltip">Have you ever had osteoporosis?
+		<span class="tooltiptext">A condition in which bones become weak and brittle</span>
+	</label>
 	<select id="osteopor_f" name="osteopor_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -322,7 +344,9 @@
 	<br>
 	<br>
 
-	<label for="polyps_f">Have you ever had colorectal polyps?</label>
+	<label for="polyps_f" class="tooltip">Have you ever had colorectal polyps?
+		<span class="tooltiptext">A small clump of cells that forms on the lining of the colon or rectum</span>
+	</label>
 	<select id="polyps_f" name="polyps_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -332,7 +356,9 @@
 	<br>
 	<br>
 
-	<label for="stroke_f">Have you ever had a stroke?</label>
+	<label for="stroke_f" class="tooltip">Have you ever had a stroke?
+		<span class="tooltiptext">Damage to the brain from interruption of its blood supply</span>
+	</label>
 	<select id="stroke_f" name="stroke_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
@@ -342,8 +368,10 @@
 	<br>
 
 	<button id='submit' onclick="postRequest()">Submit</button> 
-	<br>
-	<i id="result"></i>
+	
+	<div class="try">
+		<i id="result"></i>
+	</div>
 	
 </div>
 

@@ -40,17 +40,29 @@ function generatePayload() {
 
 function postRequest() {
     let payload = generatePayload();
+    const keys = Object.keys(payload);
     const values = Object.values(payload);
+
+    // required questions functionality 
+    document.getElementById('age').style.border = '0.0625rem solid #777';
+    document.getElementById('height1').style.border = '0.0625rem solid #777';
+    document.getElementById('height2').style.border = '0.0625rem solid #777';
+    document.getElementById('weight').style.border = '0.0625rem solid #777';
 
     for (let i = 0; i < values.length; i++) {
         if (values[i].length === 0) {
-            alert('Answer all text fields');
-            return;
+            if (keys[i] == 'cig_years') {
+                payload.cig_years = 0;
+            }   else {
+                document.getElementById(keys[i]).style.border = '0.125rem solid red';
+                window.scrollTo({top: 0, behavior: 'smooth'});
+                return;
+            }
         } 
     }
     
     payload = JSON.stringify(payload);
-     
+    
     let xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://127.0.0.1:5000/api'); // deployment: https://www.cancerprediction.org/api
     xhr.setRequestHeader('Content-type', 'application/json');
@@ -71,12 +83,12 @@ function postRequest() {
             predictionProbability = results.probability;
 
             if (cancerPrediction === "no") {
-                result = 'Based on your features, the model is '+predictionProbability+' confident that you can safely forgo a screening for colon cancer. Please remember that this is not a diagnosis.';
+                result = 'Based on your features, the model is '+predictionProbability+' confident that you can safely forgo a screening for colon cancer. Please remember that this is NOT a diagnosis.';
                 document.getElementById('result').innerHTML = result;
             }
 
             else if (cancerPrediction === 'yes') {
-                result = 'Based on your features, the model is '+predictionProbability+' confident that you should get screened for colon cancer. Please remember that this is not a diagnosis.';
+                result = 'Based on your features, the model is '+predictionProbability+' confident that you should get screened for colon cancer. Please remember that this is NOT a diagnosis.';
                 document.getElementById('result').innerHTML = result;
             }
 
@@ -88,4 +100,35 @@ function postRequest() {
         alert('Request failed');
     };
 
+}
+
+function enableQuestions() {
+    const cig_stat = document.getElementById('cig_stat').value;
+    if (cig_stat === '0') {
+        document.getElementById('cig_years').style.display = "none";
+        document.getElementById('cigpd_f').style.display = "none";
+        document.getElementById('hide1').style.display = "none";
+        document.getElementById('hide2').style.display = "none";
+        document.getElementById('hide3').style.display = "none";
+        document.getElementById('hide4').style.display = "none";
+        document.getElementById('hide5').style.display = "none";
+        document.getElementById('hide6').style.display = "none";
+    }   else {
+        document.getElementById('cig_years').style.display = "block";
+        document.getElementById('cigpd_f').style.display = "block";
+        document.getElementById('hide1').style.display = "block";
+        document.getElementById('hide2').style.display = "block";
+        document.getElementById('hide3').style.display = "block";
+        document.getElementById('hide4').style.display = "block";
+        document.getElementById('hide5').style.display = "block";
+        document.getElementById('hide6').style.display = "block";
+    }
+}
+
+function enableButton() {
+    document.getElementById("button").disabled = false;
+}
+
+function disableButton() {
+    document.getElementById("button").disabled = true;
 }

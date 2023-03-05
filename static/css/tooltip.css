@@ -9,11 +9,7 @@
   
 /* Tooltip text */
 .tooltip .tooltiptext {
-    text-align: justify;
     font-family: Garamond, serif; 
-    font-size: normal;
-    color: #000000;
-
     visibility: hidden;
     width: max-content;
     background-color: #2b2929;
@@ -25,7 +21,6 @@
     z-index: 1;
     top: -0.3125rem;
     left: 130% 
-    
 }
 
 .tooltip .tooltiptext::after {

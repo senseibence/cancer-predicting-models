@@ -3,11 +3,12 @@
 
 <head>
 
-    <title>Cookie Policy - cancerprediction.org</title>
+    <title>Agreement - cancerprediction.org</title>
 
-    <link rel="stylesheet" href="../../static/css/work-in-progress.css">
+    <link rel="stylesheet" href="../../static/css/text.css">
     <link rel="stylesheet" href="../../static/css/navbar-footer.css">
     <link rel="stylesheet" href="../../static/css/fade-in.css">
+    <script src="../../static/js/index.js"> </script> 
     
 </head>
 
@@ -27,7 +28,22 @@
     </header>
 
     <div class="fade">
-        <h2> This page is a work in progress</h2>
+        <h1 id="first">Agreement</h1>
+        <div id="last" class="box">
+            <form action="/setcookie" method="post">
+                <p>
+                    Before you can begin the Health Questionnaire, you must agree to the following:
+                    <br><br>
+                    I confirm I have read the <a class="links" href="terms-of-service.html">Terms of Service</a>, I understand its contents, and I agree to be bound by them.
+                    <br><br>
+                    <input type="radio" id="disagree" name="agreement" value="0" onclick="disableButton()">
+                    <label for="disagree">No</label><br>
+                    <input type="radio" id="agree" name="agreement" value="1" onclick="enableButton()">
+                    <label for="agree">Yes</label><br><br>
+                    <button type="submit" id="button" disabled>Begin Health Questionnaire</button>
+                </p>
+            </form>
+        </div>
     </div>
 
     <footer>
