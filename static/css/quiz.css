@@ -84,7 +84,7 @@ button:hover {
     position: absolute;
     z-index: 1;
     bottom: 150%;
-    left: 10%;
+    left: -4rem;
     margin-left: -3.75rem;
 }
   
