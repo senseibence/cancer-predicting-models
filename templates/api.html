@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../static/css/text.css">
   <link rel="stylesheet" href="../static/css/navbar-footer.css">
   <link rel="stylesheet" href="../static/css/fade-in.css">
+  <link rel="stylesheet" href="../static/css/tooltip.css">
 
 </head>
 
@@ -32,29 +33,67 @@
 
     <div class="box">
 
-      <p>
-        cancerprediction.org’s API allows HTTP POST requests of only one type: <b>application/json</b>.
-        To make a successful API request, the following 32 keys must be used in the given order.
-      </p>
+      <p></p>
+      <h2 class="inner-h2">Introduction</h2>
 
-      <h2 class="inner-h2">Keys</h2>
+      <p>The API provided by cancerprediction.org allows HTTP POST requests of only one type: <b>application/json</b>.</p>
+      <p>Requests can be made using API platforms such as Postman or by creating an XMLHttpRequest (XHR), and should be directed to <b>https://www.cancerprediction.org/api</b>.</p>
+      <p>To make a successful API request, the 30 keys in the “<a class="links" href="#keys">Keys</a>” section must be used in the given order. For “<a class="links" href="#values">Values</a>,” strings, floats, and integers are the only accepted types.</p>
+      <p>This API is useful for obtaining large quantities of predictions from cancerprediction.org’s machine learning model.</p>  
+      
+      <h2 class="inner-h2" id="keys">Keys</h2>
 
-      <p>
-        age, height1, height2, weight, sex, race7, educat, marital, occupat, cig_stat, cig_years, 
-        cigpd_f, cigar, pipe, fh_cancer, colo_fh, colo_fh_cnt, asppd, ibuppd, arthrit_f, bronchit_f, 
-        colon_comorbidity, diabetes_f, divertic_f, emphys_f, gallblad_f, hearta_f, hyperten_f, 
-        liver_comorbidity, osteopor_f, polyps_f, stroke_f.
-      </p>
+      <p></p>
+      <ol class="lists">
+        <li class="items">age</li>
+        <li class="items">height1</li>
+        <li class="items">height2</li>
+        <li class="items">weight</li>
+        <li class="items">sex</li>
+        <li class="items">race7</li>
+        <li class="items">educat</li>
+        <li class="items">marital</li>
+        <li class="items">occupat</li>
+        <li class="items">cig_stat</li>
+        <li class="items">cig_years</li>
+        <li class="items">cigpd_f</li>
+        <li class="items">cigar</li>
+        <li class="items">pipe</li>
+        <li class="items">fh_cancer</li>
+        <li class="items">asppd</li>
+        <li class="items">ibuppd</li>
+        <li class="items">arthrit_f</li>
+        <li class="items">bronchit_f</li>
+        <li class="items">colon_comorbidity</li>
+        <li class="items">diabetes_f</li>
+        <li class="items">divertic_f</li>
+        <li class="items">emphys_f</li>
+        <li class="items">gallblad_f</li>
+        <li class="items">hearta_f</li>
+        <li class="items">hyperten_f</li>
+        <li class="items">liver_comorbidity</li>
+        <li class="items">osteopor_f</li>
+        <li class="items">polyps_f</li>
+        <li class="items">stroke_f</li>
+      </ol>
+      <p></p>
         
-      <h2 class="inner-h2">Values</h2>
+      <h2 class="inner-h2" id="values">Values</h2>
 
       <p>
         Every key value must be convertible to either type int or float.<br><br>
 
-        <b>age</b>: years<br>
-        <b>height1</b>: feet<br>
-        <b>height2</b>: inches<br> 
-        <b>weight</b>: pounds<br><br>
+        <b>age (years)</b>:<br> 
+        Numeric<br><br>
+
+        <b>height1 (feet)</b>:<br> 
+        Numeric<br><br>
+
+        <b>height2 (inches)</b>:<br> 
+        Numeric<br><br>
+
+        <b>weight (pounds)</b>:<br> 
+        Numeric<br><br>
 
         <b>sex</b>:<br>
         1=“Male”<br>
@@ -99,9 +138,15 @@
         1=“Current Cigarette Smoker”<br>
         2=“Former Cigarette Smoker”<br><br>
 
-        <b>cig_years</b>: 0.5=“Six Months”<br><br>
+        <b>cig_years</b>:<br>
+        0.5=“Six Months”
+      </p>
 
-        <b>cigpd_f</b> (packs of cigarettes per day):<br>
+      <div class="tooltip"><b>cigpd_f</b>:
+        <span class="tooltiptext">“During periods when you smoked, how many cigarettes did or do you usually smoke per day?”</span>
+      </div>
+
+      <p class="after-div">
         0=“0”<br>
         1=“1-10”<br>
         2=“11-20”<br>
@@ -119,20 +164,38 @@
         <b>pipe</b>:<br>
         0=“Never”<br>
         1=“Current Pipe Smoker”<br>
-        2=“Former Pipe Smoker”<br><br>
+        2=“Former Pipe Smoker”
+      </p>
 
-        <b>fh_cancer</b> (first-degree relatives with cancer, skin cancer excluded):<br>
+      <div class="tooltip"><b>fh_cancer</b>:
+        <span class="tooltiptext">Any first-degree relative with cancer. Basal cell skin cancers are not included. First-degree relatives include parents, full-siblings, and children. Half-siblings are not included.</span>
+      </div>
+        
+      <p class="after-div">
         0=“No”<br>
-        1=“Yes”<br><br>
+        1=“Yes”
+      </p>
 
-        <b>colo_fh</b> (first-degree relatives with colon cancer):<br>
-        0=“No”<br>
-        1=“Yes, Immediate Family Member”<br>
-        9=“Possibly - Relative Or Cancer Type Not Clear”<br><br>
+      <div class="tooltip"><b>asppd</b>:
+        <span class="tooltiptext">“During the last 12 months, how many pills of aspirin or aspirin containing products did you usually take per day, per week or per month?”</span>
+      </div>
 
-        <b>colo_fh_cnt</b>: # of Relatives with Colorectal Cancer<br><br>
+      <p class="after-div">
+        0=“None”<br>
+        1=“1/Day”<br>
+        2=“2+/Day”<br>
+        3=“1/Week”<br>
+        4=“2/Week”<br>
+        5=“3-4/Week”<br>
+        6=“&lt2/Month”<br>
+        7=“2-3/Month”
+      </p>
+      
+      <div class="tooltip"><b>ibuppd</b>:
+        <span class="tooltiptext">“During the last 12 months, have you regularly used ibuprofen-containing products, such as Advil, Nuprin, or Motrin?”</span>
+      </div>
 
-        <b>asppd</b> (aspirin usage):<br>
+      <p class="after-div"> 
         0=“None”<br>
         1=“1/Day”<br>
         2=“2+/Day”<br>
@@ -141,10 +204,11 @@
         5=“3-4/Week”<br>
         6=“&lt2/Month”<br>
         7=“2-3/Month”<br><br>
-
-        <b>ibuppd</b> (ibuprofen usage): refer to <b>asppd</b><br><br>
-
-        For every subsequent key, if the disease/event did not occur, 0=“No”, and if it did, 1=“Yes”. The keys refer to the following, in order:<br><br>
+      
+        The following diseases/events refer to keys #18 and onward in the “<a class="links" href="#keys">Keys</a>” section. Depending on whether or not the disease/event occurred, the “<a class="links" href="#values">Values</a>” are:<br>
+        0=“No”<br>
+        1=“Yes”<br><br>
+       
         Arthritis<br>
         Bronchitis<br>
         Colon Comorbidities<br>
@@ -168,7 +232,7 @@
 
       <p></p><h2 class="inner-h2">Using Postman</h2><p></p>
     
-      <img class="image" src="../../static/images/postman.jpg" alt="Postman JSON Example">
+      <img class="image" src="../../static/images/apilight.jpg" alt="Postman Request Example">
 
       <p>Note the mixed use of strings, floats, and integers.</p>
 

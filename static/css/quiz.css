@@ -4,6 +4,7 @@ h1.quiz-header {
     font-size: normal;
     color: #2b2929;
     margin-top: 3.125rem;
+    margin-bottom: 1.875rem;
 }
 
 /* Styling the Form (Color, Padding, Shadow) */
@@ -12,13 +13,12 @@ h1.quiz-header {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3.125rem;
-    padding: 1.875rem 1.25rem;
+    padding: 1.25rem 1.25rem;
     border-style: solid;
     border-color: #2b2929;
     border-radius: 1.75rem;
     background-color: #fff;
-    font-family: Garamond, serif;
-    /*font-weight: bold;*/
+    font-family: 'Times New Roman', Times, serif
 }
 
 /* Styling form-control Label */
@@ -33,12 +33,12 @@ h1.quiz-header {
 .questionnaire textarea {
     border: 0.0625rem solid #777;
     border-radius: 0.125rem;
-    font-family: Garamond, serif;
-    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.875rem;
     padding: 0.625rem;
     display: block;
     width:100%;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 /* Styling Button */
@@ -47,11 +47,11 @@ button {
     border: 0.0625rem solid #777;
     border-radius: 0.125rem;
     font-family: Garamond, serif; 
-    font-size: 1.3125rem;
+    font-size: 1.25rem;
     display: block;
     width: 100%;
-    margin-top: 2.5rem;
-    margin-bottom: 0.9375rem;
+    margin-top: 1.25rem;
+    font-weight: bold;
 }
 
 button:hover {

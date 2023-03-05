@@ -41,12 +41,27 @@ ul.lists {
     padding: 0;
 }
 
-li.items {
+ul li.items {
     text-align: justify;
     font-family: Garamond, serif; 
     font-size: 1.25rem;
     color: #000000;
     margin-left: 3rem
+}
+
+ol.lists {
+    display: inline;
+    list-style-type: decimal;
+    margin: 0;
+    padding: 0;
+}
+
+ol li.items {
+    text-align: justify;
+    font-family: Garamond, serif; 
+    font-size: 1.25rem;
+    color: #000000;
+    margin-left: 1.5rem
 }
 
 .box {
@@ -56,9 +71,16 @@ li.items {
     background-color: #fff;
     margin-right: 6.25rem;
     margin-left: 6.25rem;
-    padding: 0rem 1.5rem;
+    padding: 0rem 1.5rem; /* line-height = 1.25 (font-size) * 1.2 (multiplier) = 1.5 = default distance */
 }
 
 .image {
-    width: 25%;
+    width: 25%; 
+    border-style: solid;
+    border-color: #2b2929;
+    border-width: 0.0625rem;
+}
+
+p.after-div {
+    margin-top: 0
 }

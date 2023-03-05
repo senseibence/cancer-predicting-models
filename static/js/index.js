@@ -52,7 +52,7 @@ function postRequest() {
     payload = JSON.stringify(payload);
      
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://www.cancerprediction.org/api'); // deployment: https://www.cancerprediction.org/api
+    xhr.open('POST', 'http://127.0.0.1:5000/api'); // deployment: https://www.cancerprediction.org/api
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(payload);
 
@@ -71,12 +71,12 @@ function postRequest() {
             predictionProbability = results.probability;
 
             if (cancerPrediction === "no") {
-                result = 'Based on your features, the model is '+predictionProbability+' confident that you can safely forgo a screening for colon cancer. Please remember that this is not a diagnosis';
+                result = 'Based on your features, the model is '+predictionProbability+' confident that you can safely forgo a screening for colon cancer. Please remember that this is not a diagnosis.';
                 document.getElementById('result').innerHTML = result;
             }
 
             else if (cancerPrediction === 'yes') {
-                result = 'Based on your features, the model is '+predictionProbability+' confident that you should get screened for colon cancer. Please remember that this is not a diagnosis';
+                result = 'Based on your features, the model is '+predictionProbability+' confident that you should get screened for colon cancer. Please remember that this is not a diagnosis.';
                 document.getElementById('result').innerHTML = result;
             }
 

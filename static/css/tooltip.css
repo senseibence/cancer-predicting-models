@@ -1,0 +1,45 @@
+.tooltip {
+    text-align: justify;
+    font-family: Garamond, serif; 
+    font-size: 1.25rem;
+    color: #3030F1;
+    position: relative;
+    display: inline-block;
+}
+  
+/* Tooltip text */
+.tooltip .tooltiptext {
+    text-align: justify;
+    font-family: Garamond, serif; 
+    font-size: normal;
+    color: #000000;
+
+    visibility: hidden;
+    width: max-content;
+    background-color: #2b2929;
+    color: #f2f2f2;
+    text-align: center;
+    border-radius: 0.375rem;
+    padding: 0.3125rem 0.3125rem;
+    position: absolute;
+    z-index: 1;
+    top: -0.3125rem;
+    left: 130% 
+    
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -0.3125rem;
+    border-width: 0.3125rem;
+    border-style: solid;
+    border-color: transparent #2b2929 transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
