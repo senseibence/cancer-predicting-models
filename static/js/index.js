@@ -64,7 +64,7 @@ function postRequest() {
     payload = JSON.stringify(payload);
     
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://www.cancerprediction.org/api'); // deployment: https://www.cancerprediction.org/api // testing: http://127.0.0.1:5000/api
+    xhr.open('POST', '/api');
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(payload);
 
