@@ -177,4 +177,4 @@ def predict():
     else: return 'Payload not of type JSON'
     
 if __name__ == '__main__':
-    application.run(debug=True) # deployment: remove "debug=True"
+    application.run() # deployment: remove "debug=True"
