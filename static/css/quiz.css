@@ -41,6 +41,21 @@ h1.quiz-header {
     box-sizing: border-box;
 }
 
+.flex {
+    display: flex;
+    justify-content: space-between
+}
+  
+.side-by-side-left {
+    display: inline-block;
+    width: 48%;
+}
+
+.side-by-side-right {
+    display: inline-block;
+    width: 48%;
+}
+  
 /* Styling Button */
 button {
     background-color: rgb(173, 216, 230);
