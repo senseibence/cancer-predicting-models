@@ -17,6 +17,8 @@ function generatePayload() {
         "cigar": document.getElementById('cigar').value,
         "pipe": document.getElementById('pipe').value,
         "fh_cancer": document.getElementById('fh_cancer').value,
+        "colo_fh": document.getElementById('colo_fh').value,
+        "colo_fh_cnt": document.getElementById('colo_fh_cnt').value,
         "asppd": document.getElementById('asppd').value,
         "ibuppd": document.getElementById('ibuppd').value,
         "arthrit_f": document.getElementById('arthrit_f').value,
@@ -48,19 +50,56 @@ function postRequest() {
     document.getElementById('height1').style.border = '0.0625rem solid #777';
     document.getElementById('height2').style.border = '0.0625rem solid #777';
     document.getElementById('weight').style.border = '0.0625rem solid #777';
+    document.getElementById('cig_years').style.border = '0.0625rem solid #777';
+    document.getElementById('colo_fh_cnt').style.border = '0.0625rem solid #777';
 
-    for (let i = 0; i < values.length; i++) {
+    // dynamic CSS === spaghetti code
+    for (let i = 0; i < values.length; i++) { 
         if (values[i].length === 0) {
-            if (keys[i] == 'cig_years') {
-                payload.cig_years = 0;
-            }   else {
-                document.getElementById(keys[i]).style.border = '0.125rem solid red';
-                window.scrollTo({top: 0, behavior: 'smooth'});
+
+            const answerBox = document.getElementById(keys[i])
+            const label = document.getElementById(keys[i]+'REQ')
+
+            if (keys[i] === 'cig_years') {
+                if (payload.cig_stat !== '0') {
+                    answerBox.style.border = '0.125rem solid red';
+                    label.scrollIntoView({ behavior: 'smooth' })
+                    return;
+                }   payload.cig_years = '0';
+            }   
+            
+            else if (keys[i] === 'colo_fh_cnt') {
+                if (payload.colo_fh !== '0') {
+                    answerBox.style.border = '0.125rem solid red';
+                    label.scrollIntoView({ behavior: 'smooth' })
+                    return;
+                }   payload.colo_fh_cnt = '0';
+            }
+            
+            else {
+                answerBox.style.border = '0.125rem solid red';
+                label.scrollIntoView({ behavior: 'smooth' })
                 return;
             }
         } 
     }
+
+    // reset when not displayed
+    if (payload.cig_stat === '0') {
+        payload.cig_years = '0';
+        payload.cigpd_f = '0';
+    }
+
+    if (payload.fh_cancer === '0') {
+        payload.colo_fh = '0';
+        payload.colo_fh_cnt = '0';
+    }
+
+    if (payload.colo_fh === '0') {
+        payload.colo_fh_cnt = '0';
+    }
     
+    // API request
     payload = JSON.stringify(payload);
     
     let xhr = new XMLHttpRequest();
@@ -82,7 +121,7 @@ function postRequest() {
             cancerPrediction = results.prediction;
             predictionProbability = results.probability;
 
-            if (cancerPrediction === "no") {
+            if (cancerPrediction === 'no') {
                 result = 'Based on your features, the model is '+predictionProbability+' confident that you can safely forgo a screening for colon cancer. Please remember that this is NOT a diagnosis.';
                 document.getElementById('result').innerHTML = result;
             }
@@ -102,26 +141,62 @@ function postRequest() {
 
 }
 
-function enableQuestions() {
+function enableCigarette() {
     const cig_stat = document.getElementById('cig_stat').value;
+    const hiddenCigElements = document.getElementsByClassName('hiddenCig');
+
     if (cig_stat === '0') {
-        document.getElementById('cig_years').style.display = "none";
-        document.getElementById('cigpd_f').style.display = "none";
-        document.getElementById('hide1').style.display = "none";
-        document.getElementById('hide2').style.display = "none";
-        document.getElementById('hide3').style.display = "none";
-        document.getElementById('hide4').style.display = "none";
-        document.getElementById('hide5').style.display = "none";
-        document.getElementById('hide6').style.display = "none";
+        for (let element of hiddenCigElements) {
+            element.style.display = "none";
+        }
+
     }   else {
-        document.getElementById('cig_years').style.display = "block";
-        document.getElementById('cigpd_f').style.display = "block";
-        document.getElementById('hide1').style.display = "block";
-        document.getElementById('hide2').style.display = "block";
-        document.getElementById('hide3').style.display = "block";
-        document.getElementById('hide4').style.display = "block";
-        document.getElementById('hide5').style.display = "block";
-        document.getElementById('hide6').style.display = "block";
+        for (let element of hiddenCigElements) {
+            element.style.display = "block";
+        }
+    }
+}
+
+function enableColon() {
+    const fh_cancer = document.getElementById('fh_cancer').value;
+    const colo_fh = document.getElementById('colo_fh').value;
+
+    const hiddenColonElements = document.getElementsByClassName('hiddenColon');
+    const hiddenSiblingElements = document.getElementsByClassName('hiddenSibling');
+
+    if (fh_cancer === '0') {
+        for (let element of hiddenColonElements) {
+            element.style.display = "none";
+        }
+        for (let element of hiddenSiblingElements) {
+            element.style.display = "none";
+        }
+
+    }   else {
+        for (let element of hiddenColonElements) {
+            element.style.display = "block";
+        }
+        if (colo_fh !== '0') {
+            for (let element of hiddenSiblingElements) {
+                element.style.display = "block";
+            }
+        }
+    }
+}
+
+function enableSibling() {
+    const colo_fh = document.getElementById('colo_fh').value;
+    const hiddenSiblingElements = document.getElementsByClassName('hiddenSibling');
+
+    if (colo_fh === '0') {
+        for (let element of hiddenSiblingElements) {
+            element.style.display = "none";
+        }
+
+    }   else {
+        for (let element of hiddenSiblingElements) {
+            element.style.display = "block";
+        }
     }
 }
 

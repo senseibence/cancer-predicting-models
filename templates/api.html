@@ -38,7 +38,7 @@
 
       <p>The API provided by cancerprediction.org allows HTTP POST requests of only one type: <b>application/json</b>.</p>
       <p>Requests can be made using API platforms such as Postman or by creating an XMLHttpRequest (XHR), and should be directed to <b>https://www.cancerprediction.org/api</b>.</p>
-      <p>To make a successful API request, the 30 keys in the “<a class="links" href="#keys">Keys</a>” section must be used in the given order. For “<a class="links" href="#values">Values</a>,” strings, floats, and integers are the only accepted types.</p>
+      <p>To make a successful API request, the 32 keys in the “<a class="links" href="#keys">Keys</a>” section must be used in the given order. For “<a class="links" href="#values">Values</a>,” strings, floats, and integers are the only accepted types.</p>
       <p>This API is useful for obtaining large quantities of predictions from cancerprediction.org’s machine learning model.</p>  
       
       <h2 class="inner-h2" id="keys">Keys</h2>
@@ -60,6 +60,8 @@
         <li class="items">cigar</li>
         <li class="items">pipe</li>
         <li class="items">fh_cancer</li>
+        <li class="items">colo_fh</li>
+        <li class="items">colo_fh_cnt</li>
         <li class="items">asppd</li>
         <li class="items">ibuppd</li>
         <li class="items">arthrit_f</li>
@@ -176,6 +178,24 @@
         1=“Yes”
       </p>
 
+      <div class="tooltip"><b>colo_fh</b>:
+        <span class="tooltiptext">Colorectal cancer family history in first-degree relatives. Includes parents, full-siblings, and children</span>
+      </div>
+        
+      <p class="after-div">
+        0=“No”<br> 
+        1=“Yes, Immediate Family Member”<br>
+        9=“Possibly - Relative Or Cancer Type Not Clear”
+      </p>
+
+      <div class="tooltip"><b>colo_fh_cnt</b>:
+        <span class="tooltiptext">The number of first-degree relatives with colorectal cancer</span>
+      </div>
+        
+      <p class="after-div">
+        Numeric
+      </p>
+
       <div class="tooltip"><b>asppd</b>:
         <span class="tooltiptext">“During the last 12 months, how many pills of aspirin or aspirin containing products did you usually take per day, per week, or per month?”</span>
       </div>
@@ -232,7 +252,7 @@
 
       <p></p><h2 class="inner-h2">Using Postman</h2><p></p>
     
-      <img class="image" src="../../static/images/apilight.jpg" alt="Postman Request Example">
+      <img class="image" src="../../static/images/postman.jpg" alt="Postman Request Example">
 
       <p>Note the mixed use of strings, floats, and integers.</p>
 

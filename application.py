@@ -20,6 +20,8 @@ keys = [
     'cigar',
     'pipe',
     'fh_cancer',
+    'colo_fh',
+    'colo_fh_cnt',
     'asppd',
     'ibuppd',
     'arthrit_f',
@@ -51,7 +53,7 @@ def calculateBMI(features):
     feet += converted_inches
 
     meters = feet / 3.281
-    if (meters == 0): return 27.282130617023647 # division by zero if unchecked
+    if (meters == 0): return 27.282130617023647 # this is mean of BMI column; division by zero if unchecked
 
     pounds = features[3]
     kg = pounds / 2.205
@@ -146,7 +148,7 @@ def predict():
                 
             bmi = calculateBMI(features)
             del features[1:4]
-            features.insert(12, bmi)
+            features.insert(14, bmi)
 
             # ML Models
             features = XGBscaler.transform([features])
@@ -177,4 +179,4 @@ def predict():
     else: return 'Payload not of type JSON'
     
 if __name__ == '__main__':
-    application.run() # deployment: remove "debug=True"
+    application.run() # deployment: remove debug=True

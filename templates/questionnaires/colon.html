@@ -31,7 +31,7 @@
 
 <div class="questionnaire">
 
-	<label for="age" class="required">Age (years)</label>
+	<label for="age" class="required" id="ageREQ">Age (years)</label>
 	<input type="number" id="age" name="age">
 
 	<br>
@@ -39,11 +39,11 @@
 
 	<div class="flex">
 		<div class="side-by-side-left">
-			<label for="height1" class="required">Height (feet)</label>
+			<label for="height1" class="required" id="height1REQ">Height (feet)</label>
 			<input type="number" id="height1" name="height1" class="float-left">
 		</div>
 		<div class="side-by-side-right">
-			<label for="height2" class="required">Height (inches)</label>
+			<label for="height2" class="required" id="height2REQ">Height (inches)</label>
 			<input type="number" id="height2" name="height2" class="float-left"> 
 		</div>
 	</div>
@@ -51,7 +51,7 @@
 	<br>
 	<br>
 
-	<label for="weight" class="required">Weight (pounds)</label>
+	<label for="weight" class="required" id="weightREQ">Weight (pounds)</label>
 	<input type="number" id="weight" name="weight">
 
 	<br>
@@ -121,23 +121,23 @@
 	<br>
 
 	<label for="cig_stat">Cigarette smoking status</label>
-	<select id="cig_stat" name="cig_stat" onchange="enableQuestions()">
+	<select id="cig_stat" name="cig_stat" onchange="enableCigarette()">
 	<option value="0">Never Smoked Cigarettes</option>	
 	<option value="1">Current Cigarette Smoker</option>
 	<option value="2">Former Cigarette Smoker</option>
 	</select>
 	
-	<br id="hide1" style="display:none;">
-	<br id="hide2" style="display:none;">
+	<br class="hiddenCig" style="display:none;">
+	<br class="hiddenCig" style="display:none;">
 
-	<label for="cig_years" id="hide3" style="display:none;">Duration smoked cigarettes (years)</label>
-	<input type="number" id="cig_years" name="cig_years" style="display:none;">
+	<label class="hiddenCig" style="display:none;" for="cig_years" id="cig_yearsREQ">Duration smoked cigarettes (years)</label>
+	<input class="hiddenCig" style="display:none;" type="number" id="cig_years" name="cig_years">
 	
-	<br id="hide4" style="display:none;">
-	<br id="hide5" style="display:none;">
+	<br class="hiddenCig" style="display:none;">
+	<br class="hiddenCig" style="display:none;">
 
-	<label for="cigpd_f" id="hide6" style="display:none;">Number of cigarettes smoked per day</label>
-	<select id="cigpd_f" name="cigpd_f" style="display:none;">
+	<label class="hiddenCig" style="display:none;" for="cigpd_f">Number of cigarettes smoked per day</label>
+	<select class="hiddenCig" style="display:none;" id="cigpd_f" name="cigpd_f">
 	<option value="0">0</option>
 	<option value="1">1-10</option>
 	<option value="2">11-20</option>
@@ -146,7 +146,7 @@
 	<option value="5">41-60</option>
 	<option value="6">61-80</option>
 	<option value="7">81+</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -173,11 +173,28 @@
 	<br>
 
 	<label for="fh_cancer">Do any of your first-degree relatives (parents, full-siblings, and children) have a history of cancer, excluding basal cell skin cancers?</label>
-	<select id="fh_cancer" name="fh_cancer">
+	<select id="fh_cancer" name="fh_cancer" onchange="enableColon()">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
+	
+	<br class="hiddenColon" style="display:none;">
+	<br class="hiddenColon" style="display:none;">
+
+	<label class="hiddenColon" style="display:none;" for="colo_fh">Do any of your first-degree relatives have a history of colon cancer?</label>
+	<select class="hiddenColon" style="display:none;" id="colo_fh" name="colo_fh" onchange="enableSibling()">
+	<option value="0">No</option>	
+	<option value="1">Yes, Immediate Family Member</option>
+	<option value="9">Possibly - Relative Or Cancer Type Not Clear</option>
+	<option value="0">I don’t know</option>
+	</select>
+	
+	<br class="hiddenSibling" style="display:none;">
+	<br class="hiddenSibling" style="display:none;">
+
+	<label class="hiddenSibling" style="display:none;" for="colo_fh_cnt" id="colo_fh_cntREQ">How many of your first-degree relatives have colon cancer?</label>
+	<input class="hiddenSibling" style="display:none;" type="number" id="colo_fh_cnt" name="colo_fh_cnt">
 	
 	<br>
 	<br>
@@ -192,7 +209,7 @@
 	<option value="5">3-4/Week</option>
 	<option value="6">&lt2/Month</option>
 	<option value="7">2-3/Month</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -208,7 +225,7 @@
 	<option value="5">3-4/Week</option>
 	<option value="6">&lt2/Month</option>
 	<option value="7">2-3/Month</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -221,7 +238,7 @@
 	<select id="arthrit_f" name="arthrit_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -234,7 +251,7 @@
 	<select id="bronchit_f" name="bronchit_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -247,7 +264,7 @@
 	<select id="colon_comorbidity" name="colon_comorbidity">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -260,7 +277,7 @@
 	<select id="diabetes_f" name="diabetes_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -273,7 +290,7 @@
 	<select id="divertic_f" name="divertic_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -286,7 +303,7 @@
 	<select id="emphys_f" name="emphys_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -299,7 +316,7 @@
 	<select id="gallblad_f" name="gallblad_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -312,7 +329,7 @@
 	<select id="hearta_f" name="hearta_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -325,7 +342,7 @@
 	<select id="hyperten_f" name="hyperten_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -338,7 +355,7 @@
 	<select id="liver_comorbidity" name="liver_comorbidity">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -351,7 +368,7 @@
 	<select id="osteopor_f" name="osteopor_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -364,7 +381,7 @@
 	<select id="polyps_f" name="polyps_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 	
 	<br>
@@ -377,7 +394,7 @@
 	<select id="stroke_f" name="stroke_f">
 	<option value="0">No</option>	
 	<option value="1">Yes</option>
-	<option value="0">I don't know</option>
+	<option value="0">I don’t know</option>
 	</select>
 
 	<br>
