@@ -65,15 +65,19 @@ function postRequest() {
                     answerBox.style.border = '0.125rem solid red';
                     label.scrollIntoView({ behavior: 'smooth' })
                     return;
-                }   payload.cig_years = '0';
+                }   
+
+                payload.cig_years = '0';
             }   
             
             else if (keys[i] === 'colo_fh_cnt') {
-                if (payload.colo_fh !== '0') {
+                if (payload.colo_fh !== '0' && payload.fh_cancer !== '0') {
                     answerBox.style.border = '0.125rem solid red';
                     label.scrollIntoView({ behavior: 'smooth' })
                     return;
-                }   payload.colo_fh_cnt = '0';
+                }   
+
+                payload.colo_fh_cnt = '0';
             }
             
             else {
