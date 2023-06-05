@@ -1,4 +1,5 @@
-# Machine Learning Cancer-Predicting Algorithm
+# Machine Learning Cancer-Predicting Algorithm 
+# (Project Completed as of May 2023)
 This project will primarily utilize the Python libraries Scikit-learn, TensorFlow, and XGBoost. Hopefully, these models will be capable of accurately predicting whether patients have various cancers such as colorectal, pancreatic, breast, etc., or not. Data is provided by the National Cancer Institute's *Cancer Data Access System*, and will not be available in this repository. 
 
 This is an independant project for ISEF 2023. As of current, only colorectal data is being used.
