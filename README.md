@@ -1,14 +1,26 @@
-# Machine Learning Cancer-Predicting Algorithm 
-# (Project Completed as of May 2023)
-This project will primarily utilize the Python libraries Scikit-learn, TensorFlow, and XGBoost. Hopefully, these models will be capable of accurately predicting whether patients have various cancers such as colorectal, pancreatic, breast, etc., or not. Data is provided by the National Cancer Institute's *Cancer Data Access System*, and will NOT be available in this repository. 
-
-This is an independent project for ISEF 2023. As of current, only colorectal data is being used.
+# Machine Learning Cancer-Predicting Algorithm (Project Completed)
 
 Project website: https://www.cancerprediction.org/
 
+[Terms of Service](https://www.cancerprediction.org/legal/terms-of-service.html)
+
+[Privacy Policy](https://www.cancerprediction.org/legal/privacy-policy.html)
+
+# Qualification 
+
+As of May 2023, I have:
+* Won the Rhode Island Science and Engineering Fair
+* Become a Regeneron International Science and Engineering Fair (ISEF) Finalist
+
+# Project Description
+
+This project will primarily utilize the Python libraries Scikit-learn, TensorFlow, and XGBoost. The goal is for these models to accurately predict whether or not patients have various cancers such as colorectal, pancreatic, breast, etc. Data is provided by the National Cancer Institute's *Cancer Data Access System*, and will NOT be available in this repository. 
+
+This is an independent project for ISEF 2023. As of current, only colorectal data is being used.
+
 ![image](https://cdn.discordapp.com/attachments/953870034227302470/1077035131056959608/xgboost_confusion_matrix.png)
 
-XGBoost Confusion Matrix
+XGBoost Confusion Matrix (used)
 
 ![image](https://cdn.discordapp.com/attachments/953870034227302470/1077035638693572691/xgboost_stats.png)
 
@@ -16,4 +28,4 @@ XGBoost Confusion Matrix
 
 ![image](https://user-images.githubusercontent.com/72169848/201548022-82344913-ea0e-4722-bd87-901b0b2940ee.png)
 
-Neural Network Graphs
+Neural Network Graphs (unused)
