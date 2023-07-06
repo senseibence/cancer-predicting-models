@@ -1,10 +1,8 @@
-# Machine Learning Cancer-Predicting Algorithm (Project Completed)
+# Machine Learning Cancer-Predicting Algorithm
 
-Project website: https://www.cancerprediction.org/
+Project website: https://www.cancerprediction.org/. 
 
-[Terms of Service](https://www.cancerprediction.org/legal/terms-of-service.html)
-
-[Privacy Policy](https://www.cancerprediction.org/legal/privacy-policy.html)
+The models created and used for this project are available in this repository. 
 
 # Qualification 
 
@@ -14,7 +12,7 @@ As of May 2023, I have:
 
 # Project Description
 
-This project will primarily utilize the Python libraries Scikit-learn, TensorFlow, and XGBoost. The goal is for these models to accurately predict whether or not patients have various cancers such as colorectal, pancreatic, breast, etc. Data is provided by the National Cancer Institute's *Cancer Data Access System*, and will NOT be available in this repository. 
+This project will primarily utilize the Python libraries Scikit-learn, TensorFlow, and XGBoost. The goal is for these models to accurately predict whether or not patients have various cancers such as colorectal, pancreatic, breast, etc, based on basic health features such as age, height, sex, etc. Data is provided by the National Cancer Institute's *Cancer Data Access System*, and will NOT be available in this repository. 
 
 This is an independent project for ISEF 2023. As of current, only colorectal data is being used.
 
@@ -29,3 +27,11 @@ XGBoost Confusion Matrix (used)
 ![image](https://user-images.githubusercontent.com/72169848/201548022-82344913-ea0e-4722-bd87-901b0b2940ee.png)
 
 Neural Network Graphs (unused)
+
+# For the Future
+
+If I decide to revisit this project, I will:
+* Integrate Large Language Models (LLMs) into the post-result recommendations
+* Work with a medical professional
+* Utilize various other deep-learning techniques for the prediction models
+* Grow the website to include other cancers 
