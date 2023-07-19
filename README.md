@@ -28,7 +28,7 @@ XGBoost Confusion Matrix (used)
 
 Neural Network Graphs (unused)
 
-# For the Future
+# Future Changes
 
 If I decide to revisit this project, I will:
 * Integrate Large Language Models (LLMs) into the post-result recommendations
