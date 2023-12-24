@@ -1,6 +1,6 @@
 # Machine Learning Cancer-Predicting Algorithm
 
-Project website: https://www.cancerprediction.org/. 
+Project website (no longer supported): https://www.cancerprediction.org/. 
 
 The models created and used for this project are available in this repository. 
 
