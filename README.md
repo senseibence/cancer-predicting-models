@@ -16,6 +16,10 @@ This project will primarily utilize the Python libraries Scikit-learn, TensorFlo
 
 This is an independent project for ISEF 2023. As of current, only colorectal data is being used.
 
+![image](poster.png)
+
+Science Fair Poster
+
 ![image](xgboostconfusionmatrix.png)
 
 XGBoost Confusion Matrix Graphical (used)
